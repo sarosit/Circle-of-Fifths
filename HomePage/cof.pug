@@ -1,0 +1,63 @@
+- var notesMaj = {1:'F#',2:'B',3:'E',4:'A',5:'D',6:'G',7:'C',8:'F',9:'Bb',10:'Eb',11:'Ab',12:'Db'};
+- var notesMin = {1:'Ebm',2:'Abm',3:'C#m',4:'F#m',5:'Bm',6:'Em',7:'Am',8:'Dm',9:'Gm',10:'Cm',11:'Fm',12:'Bbm'};
+- var accis = {1:'6b6#',2:'7b5#',3:'4#',4:'3#',5:'2#',6:'1#',7:'0',8:'1b',9:'2b',10:'3b',11:'4b',12:'5b7#'};
+- var notecount = 12;
+- var circleOut = {r: 40, cx: 50, cy: 50};
+- var circleMid = {r: 29, cx: 50, cy: 50};
+- var circleIn = {r: 18, cx: 50, cy: 50};
+
+
+mixin drawSegment(seg)
+  - for(let n = 1; n < 5; n++)
+    - y = 50 - 10*n*Math.tan(15*Math.PI/180)
+    - z = 50 + 10*n*Math.tan(15*Math.PI/180)
+    - a = 50 - 10*n
+    - r = 1500/(10*n)
+    g(class='segment')
+      path(id='segment' stroke='black' fill='none' stroke-width='.35' 
+      d=`M${y} ${a} A${y} ${r}, 0, 0 1, ${z} ${a} L50 50 L${y} ${a}` transform=`rotate(${x},50,50)`)
+      
+mixin drawNotes(circleOut)    
+    each item, i in notesMaj             
+      - x2 = Math.round(Math.sin((i-1) * (360/notecount) * Math.PI/180) * circleOut.r*0.9 + circleOut.cx) - 1.5;
+      - y2 = Math.round(Math.cos((i-1) * (360/notecount) * Math.PI/180) * circleOut.r*0.9 + circleOut.cy) + 1;    
+      text(id='major' x=x2 y=y2) #{item}
+      
+mixin drawMinNotes(circleMid)    
+    each item, i in notesMin             
+      - x2 = Math.round(Math.sin((i-1) * (360/notecount) * Math.PI/180) * circleMid.r*0.9 + circleMid.cx) - 2.5;
+      - y2 = Math.round(Math.cos((i-1) * (360/notecount) * Math.PI/180) * circleMid.r*0.9 + circleMid.cy) + 1;    
+      text(id='minor' x=x2 y=y2) #{item}
+      
+mixin drawAcc(circleIn)    
+    each item, i in accis             
+      - x2 = Math.round(Math.sin((i-1) * (360/notecount) * Math.PI/180) * circleIn.r*0.9 + circleIn.cx) - .9;
+      - y2 = Math.round(Math.cos((i-1) * (360/notecount) * Math.PI/180) * circleIn.r*0.9 + circleIn.cy) + 1;    
+      text(id='accidentals' x=x2 y=y2) #{item}
+
+
+
+head
+  meta(charset='utf-8')
+  div(class = 'title')
+  h1  The Circle of Fifths
+  title Functional Harmony
+  link(rel='stylesheet', href='cofStyle.css')
+.container
+  .nav-wrapper
+    .left-side
+      .nav-link-wrapper
+        a(href='content.html') Home
+    .right-side
+      .brand
+        | Tomas Sarosi
+  .circle-wrapper
+    svg(class='box' width='100%' height='600' viewbox='0 0 100 100')
+      - for(let i = 0; i < 12; i++) 
+        - x = i * (360/12)
+          +drawSegment
+      circle(cx='50' cy='50' r='10.1' fill='white' stroke='black' stroke-width='.35')
+      path(id='centre' stroke='black' fill='none' stroke-width='.35' d= 'M50 50 L50 40 M50 50 L60 60 M50 50 L40 60')
+      +drawNotes(circleOut)
+      +drawMinNotes(circleMid)
+      +drawAcc(circleIn)

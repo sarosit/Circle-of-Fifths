@@ -1,0 +1,25 @@
+head
+  meta(charset='utf-8')
+  title Scales
+  link(rel='stylesheet', href='style.css')
+.container
+  .nav-wrapper
+    .left-side
+      .nav-link-wrapper
+        a(href='content.html') Home
+    .right-side
+      .brand
+        | Tomas Sarosi
+  .content-wrapper
+    .dropdown
+      button.drop-button(onclick='ddFunction()') Scale Type
+      #scale-drop.dropdown-content
+        a(href='#') Major
+        a(href='#') Melodic Minor
+        a(href='#') Harmonic Minor
+        a(href='#') Harmonic Major
+    .dropdown-scale-display
+      a(href='main-notes')
+    .scale-wrapper
+
+    
