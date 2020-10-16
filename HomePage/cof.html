@@ -5,17 +5,19 @@
   <title>Functional Harmony</title>
   <link rel="stylesheet" href="./style.css" type="text/css"/>
 </head>
-<div class="container">
-  <div class="nav-wrapper">
-    <div class="left-side">
-      <div class="nav-link-wrapper"><a href="content.html">Home</a></div>
-    </div>
-    <div class="right-side">
-      <div class="brand">Tomas Sarosi</div>
-    </div>
+
+<!-- <div class="nav-wrapper">
+  <div class="left-side">
+    <div class="nav-link-wrapper"><a href="content.html">Home</a></div>
   </div>
+  <div class="right-side">
+    <div class="brand">Tomas Sarosi</div>
+  </div>
+</div> -->
+
+<div class="container">
   <div class="circle-wrapper">
-    <svg class="box" width="100%" height="600" viewbox="0 0 100 100">
+    <svg class="box" width="100%" height="100%" viewbox="0 0 100 100">
       <g class="segment">
         <path id="segment" stroke="black" fill="none" stroke-width=".35" d="M47.32050807568877 40 A47.32050807568877 150, 0, 0 1, 52.67949192431123 40 L50 50 L47.32050807568877 40" transform="rotate(0,50,50)"></path>
       </g>
@@ -199,5 +201,37 @@
       <text id="accidentals" x="35.1" y="59">4b</text>
       <text id="accidentals" x="41.1" y="65">5b7#</text>
     </svg>
+  </div>
+  
+  <div class="content-wrapper">
+    <h1 class="content-title">Scales and Modes</h1>
+    <div class="dropdown">
+      <button onclick="ddFunction()" class="drop-button">
+        Scale Type
+        <div class="triangle">
+          <svg width="20" height="20" viewbox="0 0 60 60">
+            <polygon points="10,10 60,10 30,60" style="fill:black;stroke-width:1">
+            </polygon>
+          </svg>
+        </div>
+      </button>
+      <ul class="dropdown-content" style="padding-left: 0px;">
+        <li><a href="#">Major</a></li>
+        <li><a href="#">Melodic Minor</a></li>
+        <li><a href="#">Harmonic Minor</a></li>
+        <li><a href="#">Harmonic Major</a></li>
+      </ul>
+    </div>
+  
+    <div class="dropdown-scale-display">
+      <a href="first"></a>
+      <a href="second"></a>
+      <a href="third"></a>
+      <a href="fourth"></a>
+      <a href="fifth"></a>
+      <a href="sixth"></a>
+      <a href="seventh"></a>
+      <a href="eighth"></a>
+    </div>
   </div>
 </div>
