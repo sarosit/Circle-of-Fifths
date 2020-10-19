@@ -25,4 +25,7 @@ document.getElementById('segC').addEventListener('mouseleave', (e) => {
     toggle.style.visibility = "hidden";
 });
 
+document.getElementById('.dropdown-content').addEventListener('click', (e) => {
+    let dropdown = document.getElementById(".dropdown-content").style.visibility = "visible";
+});
 
