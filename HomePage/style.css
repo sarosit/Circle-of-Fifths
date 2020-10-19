@@ -1,7 +1,7 @@
 .container {
   display: grid;
   grid-template-columns: 1fr 1fr;
-  height: 100%;
+  height: auto;
   border-style: solid;
   border-width: 0.2em;
 }
@@ -14,10 +14,18 @@
 .content-wrapper {
   background: #eee;
   display: grid;
-  grid-template-rows: .5fr 5fr;
+  grid-template-rows: .5fr .5fr 5fr;
   padding: 1em;
+  
 }
 
+/*.chord-wrapper {
+  background: #eee;
+  display: grid;
+  grid-template-rows: .5fr .5fr 5fr;
+  padding: 1em;
+  visibility: hidden;
+}*/
 
 #segment {
     fill: blue;
@@ -137,7 +145,7 @@
  
 }
 
-.dropdown-content li{
+.list{
   display: flex;
   flex-direction: column;
   justify-content: flex-start;
@@ -149,6 +157,10 @@
   border-style: solid;
   border-width: 1px;
   border-color: black;
+  
+}
+
+#dropmenu {
   visibility: hidden;
 }
 
@@ -172,7 +184,7 @@ a {
   font-style: oblique;
   transition-duration: 0.3s;
   width: 20%;
-  height: 80%;
+  height: auto;
   cursor: pointer;
   display:flex;
   justify-content: flex-start;
@@ -184,15 +196,34 @@ a {
 }
 
 .dropdown-scale-display {
-
   border-style: solid;
   border-width: 1px;
   display: grid;
   grid-template-rows: 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr;
   padding: 1em;
+  height: auto;
+  width: auto;
+  
 }
 
 .dropdown-scale-display > a:nth-child(2n-1) {
+  background-color: #ddd;
+  opacity: 0.4;
+}
+
+.dropdown-chord-display {
+  border-style: solid;
+  border-width: 1px;
+  display: grid;
+  grid-template-rows: 1fr 1fr 1fr;
+  grid-template-columns: 1fr 1fr 1fr;
+  
+  height: 100%;
+  width: 100%;
+ 
+}
+
+.dropdown-chord-display > a:nth-child(2n-1) {
   background-color: #ddd;
   opacity: 0.4;
 }
@@ -201,4 +232,24 @@ a {
   display: flex;
   justify-content: flex-end;
   position: relative;
+}
+
+#content-toggle {
+  position: fixed;
+  display: grid;
+  grid-template-rows: 1fr 1fr;
+  font-family: Verdana, Geneva, Tahoma, sans-serif;
+  font-weight: bold;
+  font-style: oblique;
+  font-size: 30px;
+  visibility: hidden;
+}
+
+#content-toggle li {
+  border-style: solid;
+  border-color: black;
+  border-width: 2px;
+  width: auto;
+  list-style-type: none;
+  padding: 4px;
 }
