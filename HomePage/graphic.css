@@ -1,0 +1,50 @@
+#segment {
+    fill: blue;
+    opacity: 0.2;
+}
+
+.segment:hover {
+  opacity: 1;
+}
+  
+#major {
+  font-family: courier;
+  font-weight: bold;
+  fill: black;
+  stroke: yellow;
+  stroke-width: 0.1;
+  font-size: 30%;
+}
+  
+#minor {
+  font-family: courier;
+  font-weight: bold;
+  fill: black;
+  stroke: yellow;
+  stroke-width: 0.1;
+  font-size: 25%;
+}
+  
+#accidentals {
+  font-family: courier;
+  font-weight: bold;
+  fill: black;
+  stroke: yellow;
+  stroke-width: 0.1;
+  font-size: 70%;
+}
+
+#centre {
+  opacity: 1;
+}
+
+.box {
+  font-family: courier;
+  font-weight: bold;
+  fill: black;
+  stroke: yellow;
+  stroke-width: 0.1;
+  font-size: 30%;
+  border: solid;
+  border-width: 0.1em;
+}
