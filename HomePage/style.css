@@ -4,9 +4,16 @@
   font-style: oblique;
 }
 
-.title {
+.title, #harmonic-type {
   font-family: Verdana, Geneva, Tahoma, sans-serif;
   font-weight: lighter;
   font-style: oblique;
 }
 
+#harmonic-type {
+  font-size: 15px;
+}
+
+.user-message {
+  font-size: 70px;
+}

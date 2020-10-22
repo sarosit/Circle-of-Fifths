@@ -8,13 +8,13 @@
 
 <body>
     <div class="container">
-        <div class="content-toggle" id="content-toggle">
-            <div id="scales" class="scales">
-                <p>Scales</p>
-            </div>
-            <div id="chords" class="chords">
-                <p>Chords</p>
-            </div>
+        <div id="content-toggle">
+            <button id="scales" class="scales">
+                Scales
+            </button>
+            <button id="chords" class="chords">
+                Chords
+            </button>
         </div>
         <div class="circle-wrapper">
             <svg class="box" width="100%" height="100%" viewbox="0 0 100 100">
@@ -33,7 +33,7 @@
                         d="M41.96152422706632 20 A41.96152422706632 50, 0, 0 1, 58.03847577293368 20 L50 50 L41.96152422706632 20"
                         transform="rotate(0,50,50)"></path>
                 </g>
-                <g class="segC">
+                <g id="segC" class="segC">
                     <path id="segment" stroke="black" fill="none" stroke-width=".35"
                         d="M39.28203230275509 10 A39.28203230275509 37.5, 0, 0 1, 60.71796769724491 10 L50 50 L39.28203230275509 10"
                         transform="rotate(0,50,50)"></path>
@@ -53,7 +53,7 @@
                         d="M41.96152422706632 20 A41.96152422706632 50, 0, 0 1, 58.03847577293368 20 L50 50 L41.96152422706632 20"
                         transform="rotate(30,50,50)"></path>
                 </g>
-                <g class="segG">
+                <g id="segG" class="segG">
                     <path id="segment" stroke="black" fill="none" stroke-width=".35"
                         d="M39.28203230275509 10 A39.28203230275509 37.5, 0, 0 1, 60.71796769724491 10 L50 50 L39.28203230275509 10"
                         transform="rotate(30,50,50)"></path>
@@ -73,7 +73,7 @@
                         d="M41.96152422706632 20 A41.96152422706632 50, 0, 0 1, 58.03847577293368 20 L50 50 L41.96152422706632 20"
                         transform="rotate(60,50,50)"></path>
                 </g>
-                <g class="segD">
+                <g id="segD" class="segD">
                     <path id="segment" stroke="black" fill="none" stroke-width=".35"
                         d="M39.28203230275509 10 A39.28203230275509 37.5, 0, 0 1, 60.71796769724491 10 L50 50 L39.28203230275509 10"
                         transform="rotate(60,50,50)"></path>
@@ -93,7 +93,7 @@
                         d="M41.96152422706632 20 A41.96152422706632 50, 0, 0 1, 58.03847577293368 20 L50 50 L41.96152422706632 20"
                         transform="rotate(90,50,50)"></path>
                 </g>
-                <g class="segA">
+                <g id="segA" class="segA">
                     <path id="segment" stroke="black" fill="none" stroke-width=".35"
                         d="M39.28203230275509 10 A39.28203230275509 37.5, 0, 0 1, 60.71796769724491 10 L50 50 L39.28203230275509 10"
                         transform="rotate(90,50,50)"></path>
@@ -113,7 +113,7 @@
                         d="M41.96152422706632 20 A41.96152422706632 50, 0, 0 1, 58.03847577293368 20 L50 50 L41.96152422706632 20"
                         transform="rotate(120,50,50)"></path>
                 </g>
-                <g class="segE">
+                <g id="segE" class="segE">
                     <path id="segment" stroke="black" fill="none" stroke-width=".35"
                         d="M39.28203230275509 10 A39.28203230275509 37.5, 0, 0 1, 60.71796769724491 10 L50 50 L39.28203230275509 10"
                         transform="rotate(120,50,50)"></path>
@@ -133,7 +133,7 @@
                         d="M41.96152422706632 20 A41.96152422706632 50, 0, 0 1, 58.03847577293368 20 L50 50 L41.96152422706632 20"
                         transform="rotate(150,50,50)"></path>
                 </g>
-                <g class="segB">
+                <g id="segB" class="segB">
                     <path id="segment" stroke="black" fill="none" stroke-width=".35"
                         d="M39.28203230275509 10 A39.28203230275509 37.5, 0, 0 1, 60.71796769724491 10 L50 50 L39.28203230275509 10"
                         transform="rotate(150,50,50)"></path>
@@ -153,7 +153,7 @@
                         d="M41.96152422706632 20 A41.96152422706632 50, 0, 0 1, 58.03847577293368 20 L50 50 L41.96152422706632 20"
                         transform="rotate(180,50,50)"></path>
                 </g>
-                <g class="segF#">
+                <g id="segF#" class="segF#">
                     <path id="segment" stroke="black" fill="none" stroke-width=".35"
                         d="M39.28203230275509 10 A39.28203230275509 37.5, 0, 0 1, 60.71796769724491 10 L50 50 L39.28203230275509 10"
                         transform="rotate(180,50,50)"></path>
@@ -173,7 +173,7 @@
                         d="M41.96152422706632 20 A41.96152422706632 50, 0, 0 1, 58.03847577293368 20 L50 50 L41.96152422706632 20"
                         transform="rotate(210,50,50)"></path>
                 </g>
-                <g class="segDb">
+                <g id="segDb" class="segDb">
                     <path id="segment" stroke="black" fill="none" stroke-width=".35"
                         d="M39.28203230275509 10 A39.28203230275509 37.5, 0, 0 1, 60.71796769724491 10 L50 50 L39.28203230275509 10"
                         transform="rotate(210,50,50)"></path>
@@ -193,7 +193,7 @@
                         d="M41.96152422706632 20 A41.96152422706632 50, 0, 0 1, 58.03847577293368 20 L50 50 L41.96152422706632 20"
                         transform="rotate(240,50,50)"></path>
                 </g>
-                <g class="segAb">
+                <g id="segAb" class="segAb">
                     <path id="segment" stroke="black" fill="none" stroke-width=".35"
                         d="M39.28203230275509 10 A39.28203230275509 37.5, 0, 0 1, 60.71796769724491 10 L50 50 L39.28203230275509 10"
                         transform="rotate(240,50,50)"></path>
@@ -213,7 +213,7 @@
                         d="M41.96152422706632 20 A41.96152422706632 50, 0, 0 1, 58.03847577293368 20 L50 50 L41.96152422706632 20"
                         transform="rotate(270,50,50)"></path>
                 </g>
-                <g class="segmentEb">
+                <g id="segEb" class="segmentEb">
                     <path id="segment" stroke="black" fill="none" stroke-width=".35"
                         d="M39.28203230275509 10 A39.28203230275509 37.5, 0, 0 1, 60.71796769724491 10 L50 50 L39.28203230275509 10"
                         transform="rotate(270,50,50)"></path>
@@ -233,7 +233,7 @@
                         d="M41.96152422706632 20 A41.96152422706632 50, 0, 0 1, 58.03847577293368 20 L50 50 L41.96152422706632 20"
                         transform="rotate(300,50,50)"></path>
                 </g>
-                <g class="segBb">
+                <g id="segBb" class="segBb">
                     <path id="segment" stroke="black" fill="none" stroke-width=".35"
                         d="M39.28203230275509 10 A39.28203230275509 37.5, 0, 0 1, 60.71796769724491 10 L50 50 L39.28203230275509 10"
                         transform="rotate(300,50,50)"></path>
@@ -253,7 +253,7 @@
                         d="M41.96152422706632 20 A41.96152422706632 50, 0, 0 1, 58.03847577293368 20 L50 50 L41.96152422706632 20"
                         transform="rotate(330,50,50)"></path>
                 </g>
-                <g class="segF">
+                <g id="segF" class="segF">
                     <path id="segment" stroke="black" fill="none" stroke-width=".35"
                         d="M39.28203230275509 10 A39.28203230275509 37.5, 0, 0 1, 60.71796769724491 10 L50 50 L39.28203230275509 10"
                         transform="rotate(330,50,50)"></path>
@@ -301,26 +301,21 @@
         </div>
 
         <div class="content-wrapper">
-
             <div class="content-title">
                 <h1>Scales and Modes</h1>
             </div>
             <div class="harmony-container">
-                <div class="harmonic-type">
-                    <p>Major</p>
-                </div>
-                <div class="harmonic-type">
-                    <p>Melodic Minor</p>
-                </div>
-                <div class="harmonic-type">
-                    <p>Harmonic Minor</p>
-                </div>
-                <div class="harmonic-type">
-                    <p>Harmonic Major</p>
-                </div>
+                    <button id="harmonic-type">Major</button>
+                    <button id="harmonic-type">Melodic Minor</button>
+                    <button id="harmonic-type">Harmonic Minor</button>
+                    <button id="harmonic-type">Harmonic Major</button>
             </div>
 
             <div class="display-wrapper">
+                <div class="user-message">
+                    <p style="text-align: center;">Choose a key centre on the circle</p> 
+                </div>
+
                 <div class="dropdown-scale-display">
                     <div></div>
                     <div></div>
@@ -346,4 +341,8 @@
             </div>
         </div>
     </div>
+
+    <script src="./home.js"></script>
+
 </body>
+

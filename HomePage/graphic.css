@@ -34,3 +34,8 @@
 tspan {
   font-size: 100%;
 }
+
+text {
+  pointer-events: none;
+  cursor: default;
+}
