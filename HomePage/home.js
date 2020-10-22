@@ -35,24 +35,55 @@ document.getElementById('content-toggle').addEventListener('mouseleave', (e) => 
     toggle.style.visibility = "hidden";
 });
 
-// document.getElementById('scales').addEventListener('onclick', (e) => {
-//     document.getElementById('.dropdown-scale-display').style.visibility = 'visible';
-//     document.getElementById('.dropdown-chord-display').style.visibility = 'hidden';
-//     document.getElementById('.user-message').style.visibility = 'hidden';
-// });
-
-// document.getElementById('chords').addEventListener('onclick', (e) => {
-//     document.getElementById('.dropdown-chord-display').style.visibility = 'visible';
-//     document.getElementById('.dropdown-scale-display').style.visibility = 'hidden';
-//     document.getElementById('.user-message').style.visibility = 'hidden';
-// });
 
 
 
 
-var toggle  = document.getElementById("scales");
-var content = document.getElementById(".dropdown-scale-display");
+var toggleScale  = document.getElementById("scales");
+var contentScale = document.getElementById("scale-display");
 
-toggle.addEventListener("click", function() {
-  content.style.display = (content.dataset.toggled ^= 1) ? "block" : "none";
+toggleScale.addEventListener("click", function() {
+    contentScale.style.display = (contentScale.dataset.toggled ^= 1) ? "grid" : "none";
+    contentChord.style.display = "none"
+    document.getElementById("user-message").style.visibility = "hidden"
 });
+
+var toggleChord  = document.getElementById("chords");
+var contentChord = document.getElementById("chord-display");
+
+toggleChord.addEventListener("click", function() {
+    contentChord.style.display = (contentChord.dataset.toggled ^= 1) ? "grid" : "none";
+    contentScale.style.display = "none"
+    document.getElementById("user-message").style.visibility = "hidden"
+});
+
+// var buttonScale = document.getElementById('scales');
+// var buttonChord = document.getElementById('chords');
+
+// buttonScale.onclick = function() {
+//     var divScale = document.getElementById('scale-display');
+//     var divMessage = document.getElementById('user-message')
+//     if (divScale.style.display !== 'none') {
+//         divScale.style.display = 'none';
+        
+//     }
+//     else {
+//         divScale.style.display = 'grid';
+//         divChord.style.display = 'none';
+//         divMessage.style.visibility = 'hidden'
+//     }
+// };
+
+// buttonChord.onclick = function() {
+//     var divChord = document.getElementById('chord-display');
+//     var divMessage = document.getElementById('user-message')
+//     if (divChord.style.display !== 'none') {
+//         divChord.style.display = 'none';
+        
+//     }
+//     else {
+//         divChord.style.display = 'grid';   
+//     }
+//     divScale.style.display = 'none';
+//     divMessage.style.visibility = 'hidden'
+// };

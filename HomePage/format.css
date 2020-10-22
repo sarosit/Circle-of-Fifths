@@ -65,14 +65,13 @@
     border-width: 1px;
 }
 
-.user-message {
+#user-message {
     height: 100%;
     width: 100%;
     position: absolute;
-    display: none;
 }
 
-.dropdown-scale-display {
+#scale-display {
     display: grid;
     grid-template-rows: (8, 1fr);
     height: 100%;
@@ -81,12 +80,12 @@
     display: none;
 }
 
-.dropdown-scale-display>div:nth-child(2n-1) {
+#scale-display>div:nth-child(2n-1) {
     background-color: #ddd;
     opacity: 0.4;
 }
 
-.dropdown-chord-display {
+#chord-display {
     display: grid;
     grid-template-rows: 1fr 1fr 1fr;
     grid-template-columns: 1fr 1fr 1fr;
@@ -96,7 +95,7 @@
     display: none;
 }
 
-.dropdown-chord-display>div:nth-child(2n-1) {
+#chord-display>div:nth-child(2n-1) {
     background-color: #ddd;
     opacity: 0.4;
 }
