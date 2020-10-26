@@ -1,6 +1,6 @@
-.container {
-  font-family: Verdana, Geneva, Tahoma, sans-serif;
-  font-weight: lighter;
-  font-style: oblique;
+body {
+  width: 90%;
+  max-width: 900px;
+  margin: 2em auto;
+  font: 0.9em/1.2 Arial, Helvetica, sans-serif;
 }
-
