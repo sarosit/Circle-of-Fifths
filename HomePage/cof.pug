@@ -1,7 +1,15 @@
+doctype html
 html
     head
       meta(charset='utf-8')
+      meta(name="viewport" content="width=device-width, initial-scale=1.0")
+      // TODO there is a bunch more here - you can add
       title Functional Harmony
+      // TODO ultimately want one request for these 
+      // TODO look at bundlers/minifiers
+      // TODO SASS
+      // CSS should go at the top
+      link(rel='stylesheet', href='theme.css')
       link(rel='stylesheet', href='style.css')
       link(rel='stylesheet', href='format.css')
       link(rel='stylesheet', href='graphic.css')
@@ -31,4 +39,5 @@ html
                           div
         footer
             span Tomas Sarosi
+        // javascript should go at the bottom
         script(src="home.js")

@@ -19,10 +19,20 @@ footer{
 }
 header, footer{
     text-align: center;
-    border: solid black 1px;
 }
 .content-title{
 }
 .circle-wrapper object {
     width: 100%;
+}
+.box text{
+    text-align: center;
+}
+.harmony-container{
+    display: flex;
+    flex-direction: row;
+    text-align: center;
+}
+.harmony-container > div {
+    flex: 1;
 }

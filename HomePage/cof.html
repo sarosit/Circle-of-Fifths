@@ -1,11 +1,18 @@
-
+<!DOCTYPE html>
 <html>
   <head>
-    <meta charset="utf-8"/>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <!-- TODO there is a bunch more here - you can add-->
     <title>Functional Harmony</title>
-    <link rel="stylesheet" href="style.css"/>
-    <link rel="stylesheet" href="format.css"/>
-    <link rel="stylesheet" href="graphic.css"/>
+    <!-- TODO ultimately want one request for these -->
+    <!-- TODO look at bundlers/minifiers-->
+    <!-- TODO SASS-->
+    <!-- CSS should go at the top-->
+    <link rel="stylesheet" href="theme.css">
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="format.css">
+    <link rel="stylesheet" href="graphic.css">
   </head>
   <body>
     <div class="container">
@@ -14,6 +21,12 @@
       </header>
       <article>
         <div class="circle-wrapper">
+          <!-- TODO need to replace # with-->
+          <!-- ♭        &#9837;   /  &flat;-->
+          <!-- ♮        &#9838;   /  &natural;-->
+          <!-- ♯        &#9839;   /  &sharp;-->
+          <!-- what are the knock on effects -->
+          <!-- F&sharp; or F♯-->
           <svg xmlns="http://www.w3.org/2000/svg" viewbox="0 0 100 100">
                       <g class="segment">
                         <path id="segment" stroke="black" fill="none" stroke-width=".35" d="M47.32050807568877 40 A47.32050807568877 150, 0, 0 1, 52.67949192431123 40 L50 50 L47.32050807568877 40" transform="rotate(0,50,50)"></path>
@@ -161,17 +174,29 @@
                       </g>
             <circle cx="50" cy="50" r="10.1" fill="white" stroke="black" stroke-width=".35"></circle>
             <path id="centre" stroke="black" fill="none" stroke-width=".35" d="M50 50 L50 40 M50 50 L60 60 M50 50 L40 60"></path>
-                      <text id="major-F#" x="48.5" y="87">F#</text>
+                      <!-- note interpolations here for creating the ids -->
+                      <text id="major-F♯" x="48.5" y="87">F♯</text>
+                      <!-- note interpolations here for creating the ids -->
                       <text id="major-B" x="66.5" y="82">B</text>
+                      <!-- note interpolations here for creating the ids -->
                       <text id="major-E" x="79.5" y="69">E</text>
+                      <!-- note interpolations here for creating the ids -->
                       <text id="major-A" x="84.5" y="51">A</text>
+                      <!-- note interpolations here for creating the ids -->
                       <text id="major-D" x="79.5" y="33">D</text>
+                      <!-- note interpolations here for creating the ids -->
                       <text id="major-G" x="66.5" y="20">G</text>
+                      <!-- note interpolations here for creating the ids -->
                       <text id="major-C" x="48.5" y="15">C</text>
+                      <!-- note interpolations here for creating the ids -->
                       <text id="major-F" x="30.5" y="20">F</text>
-                      <text id="major-Bb" x="17.5" y="33">Bb</text>
+                      <!-- note interpolations here for creating the ids -->
+                      <text id="major-B♭" x="17.5" y="33">B♭</text>
+                      <!-- note interpolations here for creating the ids -->
                       <text id="major-Eb" x="12.5" y="51">Eb</text>
+                      <!-- note interpolations here for creating the ids -->
                       <text id="major-Ab" x="17.5" y="69">Ab</text>
+                      <!-- note interpolations here for creating the ids -->
                       <text id="major-Db" x="30.5" y="82">Db</text>
                       <text id="minor-Ebm" x="47.5" y="77">Ebm</text>
                       <text id="minor-Abm" x="60.5" y="74">Abm</text>
@@ -232,6 +257,7 @@
         </div>
       </article>
       <footer><span>Tomas Sarosi</span></footer>
+      <!-- javascript should go at the bottom-->
       <script src="home.js"></script>
     </div>
   </body>

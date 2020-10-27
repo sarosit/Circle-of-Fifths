@@ -1,15 +1,3 @@
 .circle-wrapper svg{
-  font-size: 30%;
-}
-.box text{
-    text-align: center;
-}
-.harmony-container{
-    display: flex;
-    flex-direction: row;
-    text-align: center;
-}
-.harmony-container > div {
-    flex: 1;
-    border: solid 1px black;
+  font-size: 13%;
 }

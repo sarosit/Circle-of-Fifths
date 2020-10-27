@@ -1,7 +1,15 @@
-- var notesMaj = {1:'F#',2:'B',3:'E',4:'A',5:'D',6:'G',7:'C',8:'F',9:'Bb',10:'Eb',11:'Ab',12:'Db'};
+// TODO need to replace # with
+// ♭        &#9837;   /  &flat;
+// ♮        &#9838;   /  &natural;
+// ♯        &#9839;   /  &sharp;
+// what are the knock on effects 
+
+// F&sharp; or F♯ possibly should figure out decoupling id from rendering
+
+- var notesMaj = {1:'F♯',2:'B',3:'E',4:'A',5:'D',6:'G',7:'C',8:'F',9:'B♭',10:'Eb',11:'Ab',12:'Db'};
 - var notesMin = {1:'Ebm',2:'Abm',3:'C#m',4:'F#m',5:'Bm',6:'Em',7:'Am',8:'Dm',9:'Gm',10:'Cm',11:'Fm',12:'Bbm'};
 - var accis = {1:'6b6#',2:'7b5#',3:'4#',4:'3#',5:'2#',6:'1#',7:'0',8:'1b',9:'2b',10:'3b',11:'4b',12:'5b7#'};
-- var segs = {1:'C', 2:'D', 3:'A', 4:'E', 5:'B', 6:'F#', 7:'Db', 8:'Ab', 9:'Eb', 10:'Bb', 11:'E'}
+- var segs = {1:'C', 2:'D', 3:'A', 4:'E', 5:'B', 6:'F#', 7:'Db', 8:'Ab', 9:'Eb', 10:'B♭', 11:'E'}
 - var notecount = 12;
 - var circleOut = {r: 40, cx: 50, cy: 50};
 - var circleMid = {r: 29, cx: 50, cy: 50};
@@ -22,6 +30,7 @@ mixin drawNotes(circleOut)
     each item, i in notesMaj
       - x2 = Math.round(Math.sin((i-1) * (360/notecount) * Math.PI/180) * circleOut.r*0.9 + circleOut.cx) - 1.5;
       - y2 = Math.round(Math.cos((i-1) * (360/notecount) * Math.PI/180) * circleOut.r*0.9 + circleOut.cy) + 1;
+      // note interpolations here for creating the ids 
       text(id=`major-${item}` x=x2 y=y2) #{item}
 
 mixin drawMinNotes(circleMid)
@@ -29,7 +38,7 @@ mixin drawMinNotes(circleMid)
       - x2 = Math.round(Math.sin((i-1) * (360/notecount) * Math.PI/180) * circleMid.r*0.9 + circleMid.cx) - 2.5;
       - y2 = Math.round(Math.cos((i-1) * (360/notecount) * Math.PI/180) * circleMid.r*0.9 + circleMid.cy) + 1;
       text(id=`minor-${item}` x=x2 y=y2) #{item}
-
+      
 mixin drawAcc(circleIn)
     each item, i in accis
       - x2 = Math.round(Math.sin((i-1) * (360/notecount) * Math.PI/180) * circleIn.r*0.9 + circleIn.cx) - .9;
