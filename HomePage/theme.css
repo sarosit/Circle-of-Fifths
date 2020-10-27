@@ -1,0 +1,17 @@
+
+/* define all your colours here */
+/* then use them like var(--co5-primary-red) */
+/* see 
+in style.css
+header {
+  NOTE the use of css variables
+  color: var(--co5-primary-red);
+}
+*/
+:root {
+    --co5-primary-red: #b91717;
+    --co5-primary-grey: #535453;
+    --co5-primary-navy: #1d4b63;
+    --co5-primary-teal: #00979b;
+    --co5-primary-green: #01ae7b;
+}
