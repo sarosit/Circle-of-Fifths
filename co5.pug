@@ -1,0 +1,36 @@
+doctype html
+html
+    head
+        meta(charset='utf-8')
+        meta(name="viewport" content="width=device-width, initial-scale=1.0")
+        link(rel='stylesheet' href='./theme.css' type='text/css')
+        link(rel='stylesheet' href='./format.css' type='text/css')
+        link(rel='stylesheet' href='./graphic.css' type='text/css')
+    body
+    .container
+        #content-toggle
+            #scales Scales
+            #chords Chords
+        header
+            #title Circle of Fifths
+        article
+            .circle-wrapper
+                include circle.pug
+            .content-wrapper
+                header#content-header Scales and Modes
+                .harmony-container
+                    button.harmony#major Major
+                    button.harmony#mel-minor Melodic Minor
+                    button.harmony#harm-minor Harmonic Minor
+                    button.harmony#harm-major Harmonic Major
+                .display-wrapper
+                    #scale-display
+                        
+                    #chord-display
+
+                    #user-message
+                        p Choose a Key on The Circle
+                        
+        footer
+            span Tomas Sarosi
+        script(src='script.js')

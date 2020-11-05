@@ -1,0 +1,16 @@
+.container {
+    font-family: Verdana, Geneva, Tahoma, sans-serif;
+    font-weight: lighter;
+    font-style: oblique;
+  }
+  
+  .title, .harmony {
+    font-family: Verdana, Geneva, Tahoma, sans-serif;
+    font-weight: lighter;
+    font-style: oblique;
+  }
+  
+  #harmonic-type {
+    font-size: 15px;
+  }
+  

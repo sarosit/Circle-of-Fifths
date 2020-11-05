@@ -1,0 +1,38 @@
+.box {
+  font-family: 'Courier New';
+  fill: black;
+  font-size: 30%;
+  border: solid;
+  border-width: 1px;
+}
+
+.segment {
+  fill: blue;
+  opacity: 0.5;
+  text-align: center;
+}
+
+.segment:hover {
+  opacity: .6;
+}
+  
+#major-key {
+  font-size: 100%;
+}
+  
+#minor {
+  font-size: 90%;
+}
+  
+#accidentals {
+  font-size: 70%;
+}
+
+#centre {
+  opacity: 1;
+}
+
+text {
+  pointer-events: none;
+  cursor: default;
+}

@@ -1,0 +1,129 @@
+article {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    height: auto;
+    border-style: solid;
+    border-width: 0.2em;
+}
+
+.circle-wrapper {
+    background: #eee;
+    padding: 1em;
+}
+
+.content-wrapper {
+    background: #eee;
+    display: grid;
+    grid-template-rows: .5fr .5fr 5fr;
+    padding: 1em;
+}
+
+#title {
+    display: flex;
+    justify-content: center;
+    font-size: 80px;
+    border: solid;
+    border-width: 0.1em;
+    padding: 10px;
+    height: auto;
+    margin: 0em;
+}
+
+#content-header {
+    display: flex;
+    justify-content: center;
+    border: solid;
+    border-width: 1px;
+    padding: 10px;
+    width: auto;
+}
+
+.harmony-container {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    border: none;
+}
+
+.harmony {
+    border: solid;
+    border-width: 1px;
+}
+
+.harmony:hover {
+    background-color: gray;
+    color: white;
+    cursor: pointer;
+}
+
+.display-wrapper {
+    position: relative;
+    width: auto;
+    border-style: solid;
+    border-width: 1px;
+}
+
+#user-message {
+    height: 100%;
+    width: 100%;
+    position: absolute;
+    text-align: center;
+}
+
+#scale-display {
+    display: grid;
+    grid-template-rows: (8, 1fr);
+    height: 100%;
+    width: 100%;
+    position: absolute;
+    display: none;
+}
+
+#scale-display>div:nth-child(2n-1) {
+    background-color: #ddd;
+    opacity: 0.4;
+}
+
+#chord-display {
+    display: grid;
+    grid-template-rows: 1fr 1fr 1fr;
+    grid-template-columns: 1fr 1fr 1fr;
+    height: 100%;
+    width: 100%;
+    position: absolute;
+    display: none;
+}
+
+#chord-display>div:nth-child(2n-1) {
+    background-color: #ddd;
+    opacity: 0.4;
+}
+
+.triangle {
+    display: flex;
+    justify-content: flex-end;
+    position: relative;
+}
+
+#content-toggle {
+    position: absolute;
+    display: grid;
+    grid-template-rows: 1fr 1fr;
+    font-size: 20px;
+    visibility: hidden;
+}
+
+#scales, #chords {
+    border: solid;
+    border-width: 1px;
+    color: black;
+    background-color: blanchedalmond;
+    padding: 15px 32px;
+    text-align: center;
+    font-size: 16px;
+}
+
+#chords:hover, #scales:hover {
+    background-color: gray;
+    color: white;
+    cursor: pointer;
+}
