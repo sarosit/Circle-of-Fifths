@@ -2,18 +2,17 @@
   font-family: 'Courier New';
   fill: black;
   font-size: 30%;
-  border: solid;
-  border-width: 1px;
+  border: none;
 }
 
-.segment {
-  fill: blue;
-  opacity: 0.5;
+path {
+  fill: rgb(69, 69, 250);
+  opacity: 0.3;
   text-align: center;
 }
 
-.segment:hover {
-  opacity: .6;
+path:hover {
+  opacity: .5;
 }
   
 #major-key {

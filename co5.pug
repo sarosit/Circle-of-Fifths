@@ -3,14 +3,14 @@ html
     head
         meta(charset='utf-8')
         meta(name="viewport" content="width=device-width, initial-scale=1.0")
-        link(rel='stylesheet' href='./theme.css' type='text/css')
-        link(rel='stylesheet' href='./format.css' type='text/css')
-        link(rel='stylesheet' href='./graphic.css' type='text/css')
+        link(rel='stylesheet' href='theme.css' type='text/css')
+        link(rel='stylesheet' href='format.css' type='text/css')
+        link(rel='stylesheet' href='graphic.css' type='text/css')
     body
     .container
         #content-toggle
-            #scales Scales
-            #chords Chords
+            button#scales Scales
+            button#chords Chords
         header
             #title Circle of Fifths
         article
@@ -25,9 +25,21 @@ html
                     button.harmony#harm-major Harmonic Major
                 .display-wrapper
                     #scale-display
-                        
+                        #ionian 
+                        #dorian
+                        #phrygian
+                        #lydian
+                        #mixolydian
+                        #aeolian
+                        #locrian
                     #chord-display
-
+                        #maj7
+                        #min6
+                        #min7b9
+                        #majSharp11
+                        #dom7
+                        #min7
+                        #min7b5
                     #user-message
                         p Choose a Key on The Circle
                         

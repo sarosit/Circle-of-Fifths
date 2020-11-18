@@ -67,18 +67,19 @@ article {
     width: 100%;
     position: absolute;
     text-align: center;
+    visibility: hidden;
 }
 
 #scale-display {
     display: grid;
-    grid-template-rows: (8, 1fr);
+    grid-template-rows: repeat(7, 1fr);
     height: 100%;
     width: 100%;
     position: absolute;
-    display: none;
+    visibility: hidden;
 }
 
-#scale-display>div:nth-child(2n-1) {
+#scale-display:nth-child(2n-1) {
     background-color: #ddd;
     opacity: 0.4;
 }
@@ -90,18 +91,12 @@ article {
     height: 100%;
     width: 100%;
     position: absolute;
-    display: none;
+    visibility: hidden;
 }
 
-#chord-display>div:nth-child(2n-1) {
+#chord-display:nth-child(2n-1) {
     background-color: #ddd;
     opacity: 0.4;
-}
-
-.triangle {
-    display: flex;
-    justify-content: flex-end;
-    position: relative;
 }
 
 #content-toggle {
@@ -126,4 +121,10 @@ article {
     background-color: gray;
     color: white;
     cursor: pointer;
+}
+
+#ionian span {
+    display: flex;
+    justify-content: space-between;
+    text-decoration-color: black;
 }
