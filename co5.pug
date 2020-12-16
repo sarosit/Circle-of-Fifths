@@ -26,12 +26,12 @@ html
                 .display-wrapper
                     #scale-display
                         #ionian 
-                        #dorian
-                        #phrygian
-                        #lydian
-                        #mixolydian
-                        #aeolian
-                        #locrian
+                        .mode#dorian
+                        .mode#phrygian
+                        .mode#lydian
+                        .mode#mixolydian
+                        .mode#aeolian
+                        .mode#locrian
                     #chord-display
                         #maj7
                         #min6
@@ -45,4 +45,5 @@ html
                         
         footer
             span Tomas Sarosi
+        script(src='co5.js')
         script(src='script.js')

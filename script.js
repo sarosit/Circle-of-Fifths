@@ -4,58 +4,44 @@ let toggleScale = document.getElementById("scales");
 let contentScale = document.getElementById("scale-display");
 let toggle = document.getElementById("content-toggle");
 let userMess = document.getElementById("user-message");
+let seg = document.getElementsByClassName("segment");
 
-let notesMaj = { 1: 'C', 2: 'G', 3: 'D', 4: 'A', 5: 'E', 6: 'B', 7: 'F♯', 8: 'C♯', 9: 'G♯', 10: 'E♭', 11: 'B♭', 12: 'F' };
-let notes = ['C', 'C#/Db', 'D', 'D#/Eb', 'E', 'F', 'F#/Gb', 'G', 'G#/Ab', 'A', 'A#/Bb', 'B'];
-let stencilMaj = [0, 2, 4, 5, 7, 9, 11];
+// document.getElementById('C').addEventListener('mouseenter', (e) => {
+//     let x = e.clientX;
+//     let y = e.clientY;
+//     toggle.style.visibility = "visible";
+//     toggle.style.left = x + 'px';
+//     toggle.style.top = y + 'px';
+// });
+// document.getElementById('C').addEventListener('mouseleave', (e) => {
+//     toggle.style.visibility = "hidden";
+// });
 
-let getNamedScale = function (starterNote){
-  let startingIndex = notes.indexOf(starterNote);
-  i = 0;
-  let currentNote = starterNote;
-  let myNewScale = [];
-  do {
-    myNewScale.push(currentNote);
-    currentNote = notes[(startingIndex  + ++i)%12];
-    
-  } while(currentNote != starterNote)
-    return myNewScale;
-}
+// document.getElementById('content-toggle').addEventListener('mouseenter', (e) => {
+//     toggle.style.visibility = "visible";
+// });
+// document.getElementById('content-toggle').addEventListener('mouseleave', (e) => {
+//     toggle.style.visibility = "hidden";
+// });
 
-notes.forEach((x)=>{
-    console.log(getNamedScale(x).filter((element,i)=>stencilMaj.some(j => i === j)));
-});
-
-
-
-
-
-
-
-
-document.getElementById('C').addEventListener('mouseenter', (e) => {
-    let x = e.clientX;
-    let y = e.clientY;
-    toggle.style.visibility = "visible";
-    toggle.style.left = x + 'px';
-    toggle.style.top = y + 'px';
-});
-document.getElementById('C').addEventListener('mouseleave', (e) => {
-    toggle.style.visibility = "hidden";
-});
-
-document.getElementById('content-toggle').addEventListener('mouseenter', (e) => {
-    toggle.style.visibility = "visible";
-});
-document.getElementById('content-toggle').addEventListener('mouseleave', (e) => {
-    toggle.style.visibility = "hidden";
-});
+// function displayModes(el){
+//     for (let i = 0; i < 7; i++) {
+//         let modeDisplay = document.createElement("SPAN");
+//         modeDisplay.innerHTML = el;
+//         document.getElementsByClassName('mode').appendChild(modeDisplay);
+//     };
+// }
 
 
+document.addEventListener('click', function () {
+    for (let i = 0; i < 7; i++) {
+        let parentScale = document.createElement("SPAN");
+        let tonicScale = getNamedScale(getTonicsFromID());
+        parentScale.innerHTML = tonicScale[i];
+        document.getElementById('ionian').appendChild(parentScale);
+    };
+}, {once : true});
 
-var parentScale = document.createElement("SPAN");
-parentScale.innerHTML = getNamedScale('C').filter((element,i)=>stencilMaj.some(j => i === j));
-document.getElementById('ionian').appendChild(parentScale);
 
 
 

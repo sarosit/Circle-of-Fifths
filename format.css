@@ -79,11 +79,6 @@ article {
     visibility: hidden;
 }
 
-#scale-display:nth-child(2n-1) {
-    background-color: #ddd;
-    opacity: 0.4;
-}
-
 #chord-display {
     display: grid;
     grid-template-rows: 1fr 1fr 1fr;
@@ -123,8 +118,9 @@ article {
     cursor: pointer;
 }
 
-#ionian span {
+#ionian {
     display: flex;
     justify-content: space-between;
     text-decoration-color: black;
+    padding: 1em;
 }
