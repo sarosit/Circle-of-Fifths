@@ -12,16 +12,15 @@ html
         script(src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.2/jquery.min.js")
     body
         .container
-            #content-toggle
-                button#scales Scales
-                button#chords Chords
             header
                 #title Circle of Fifths
             article
                 .circle-wrapper
                     include circle.pug
                 .content-wrapper
-                    header#content-header Scales and Modes
+                    header
+                        #scales Scales and Modes
+                        #chords Chords
                     .harmony-container
                         button.harmony#major Major
                         button.harmony#mel-minor Melodic Minor
