@@ -15,37 +15,43 @@ article {
     background: #eee;
     display: grid;
     grid-template-rows: .5fr .5fr 5fr;
-    padding: 1em;
+    padding: none;
 }
 
 #title {
+    background: #eee;
     display: flex;
     justify-content: center;
+    border: solid;
+    border-bottom: none;
+    border-width: 1px;
     font-size: 2em;
     padding: 10px;
-    height: 20%;
+    height: auto;
+    width: 100%;
     margin: 0em;
 }
 
 header {
     display: flex;
     justify-content: space-evenly;
-    border: solid;
-    border-width: 1px;
-    padding: 10px;
+    padding: none;
     width: auto;
 }
 
 #scales, #chords {
     border: solid;
+    border-bottom: none;
+    border-top: none;
     border-width: 1px;
     color: black;
-    background-color: rgb(255, 255, 255);
+    background-color: #eee;
     padding: 15px 32px;
     text-align: center;
     font-size: 16px;
     width: 100%;
 }
+
 
 .harmony-container {
     display: grid;
@@ -67,8 +73,9 @@ header {
 .display-wrapper {
     position: relative;
     width: auto;
-    border-style: solid;
+    border-left: solid;
     border-width: 1px;
+    padding: none;
 }
 
 #user-message {
@@ -118,6 +125,13 @@ header {
 }
 
 #ionian {
+    display: flex;
+    justify-content: space-between;
+    text-decoration-color: black;
+    padding: 1em;
+}
+
+.modeSpan {
     display: flex;
     justify-content: space-between;
     text-decoration-color: black;

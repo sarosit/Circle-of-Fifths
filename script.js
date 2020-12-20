@@ -56,11 +56,11 @@ let circle = document.getElementsByClassName("segment");
 //     };
 // }, { once: true });
 
-
-$(".segment").one('click', function () {
+$(".segment").click(function () {
     let note = this.id;
     let tonicScale = getNamedScale(note);
-    scaleBox = document.createElement("div");
+    let scaleBox = document.createElement("div");
+    scaleBox.id = "ionian"
     contentScale.appendChild(scaleBox);
     contentScale.style.visibility = (contentScale.dataset.toggled ^= 1) ? "visible" : "hidden";
     contentChord.style.visibility = "hidden"
@@ -70,8 +70,26 @@ $(".segment").one('click', function () {
         parentScale.innerHTML = tonicScale[i];
         scaleBox.appendChild(parentScale);
     };
-
 });
+
+$(".segment").click(function () {
+    let note = this.id;
+    let modeArray = getModes(note);
+    for (let i = 0; i < 6; i++) {
+        let scaleBox = document.createElement("div");
+        scaleBox.className = "modeSpan"
+        scaleBox.id = "mode"+ (i+1);
+        contentScale.appendChild(scaleBox);
+        let currentMode = modeArray[i]
+        for (let i = 0; i < 7; i++){
+            let modeSpan = document.createElement("SPAN");
+            modeSpan.innerHTML = currentMode[i];
+            scaleBox.appendChild(modeSpan);
+        }
+    };
+});
+
+
 
 
 
