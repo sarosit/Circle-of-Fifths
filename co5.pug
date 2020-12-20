@@ -6,44 +6,54 @@ html
         link(rel='stylesheet' href='theme.css' type='text/css')
         link(rel='stylesheet' href='format.css' type='text/css')
         link(rel='stylesheet' href='graphic.css' type='text/css')
+        //- script(src="https://code.jquery.com/jquery-3.5.1.slim.min.js"
+        //-     integrity="sha256-4+XzXVhsDmqanXGHaHvgh1gMQKX40OUvDEBTu8JcmNs="
+        //-     crossorigin="anonymous")
+        script(src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.2/jquery.min.js")
     body
-    .container
-        #content-toggle
-            button#scales Scales
-            button#chords Chords
-        header
-            #title Circle of Fifths
-        article
-            .circle-wrapper
-                include circle.pug
-            .content-wrapper
-                header#content-header Scales and Modes
-                .harmony-container
-                    button.harmony#major Major
-                    button.harmony#mel-minor Melodic Minor
-                    button.harmony#harm-minor Harmonic Minor
-                    button.harmony#harm-major Harmonic Major
-                .display-wrapper
-                    #scale-display
-                        #ionian 
-                        .mode#dorian
-                        .mode#phrygian
-                        .mode#lydian
-                        .mode#mixolydian
-                        .mode#aeolian
-                        .mode#locrian
-                    #chord-display
-                        #maj7
-                        #min6
-                        #min7b9
-                        #majSharp11
-                        #dom7
-                        #min7
-                        #min7b5
-                    #user-message
-                        p Choose a Key on The Circle
-                        
-        footer
-            span Tomas Sarosi
-        script(src='co5.js')
-        script(src='script.js')
+        .container
+            #content-toggle
+                button#scales Scales
+                button#chords Chords
+            header
+                #title Circle of Fifths
+            article
+                .circle-wrapper
+                    include circle.pug
+                .content-wrapper
+                    header#content-header Scales and Modes
+                    .harmony-container
+                        button.harmony#major Major
+                        button.harmony#mel-minor Melodic Minor
+                        button.harmony#harm-minor Harmonic Minor
+                        button.harmony#harm-major Harmonic Major
+                    .display-wrapper
+                        #scale-display
+
+                        #chord-display
+                            
+                        #user-message
+                            p Choose a Key on The Circle
+
+            footer
+                span Tomas Sarosi
+        
+        script(src='co5.js' type="text/javascript")
+        script(src='script.js' type="text/javascript")
+       
+
+        //- #ionian 
+        //- .mode#dorian
+        //- .mode#phrygian
+        //- .mode#lydian
+        //- .mode#mixolydian
+        //- .mode#aeolian
+        //- .mode#locrian
+
+        //- #maj7
+        //- #min6
+        //- #min7b9
+        //- #majSharp11
+        //- #dom7
+        //- #min7
+        //- #min7b5

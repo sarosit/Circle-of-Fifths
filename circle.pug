@@ -41,7 +41,7 @@ mixin drawAcc(circleIn)
       - y2 = Math.round(Math.cos(-(i-7) * (360/notecount) * Math.PI/180) * circleIn.r*0.9 + circleIn.cy) + 1;    
       text(id='accidentals' x=x2 y=y2) #{item}
 
-svg(class='box' width='100%' height='600' viewbox='0 0 100 100')
+svg(id='box' class='box' width='100%' height='600' viewbox='0 0 100 100')
       - for(let i = 0; i < 12; i++) 
         - x = i * (360/12)
         - noteID = noteIDs[i]
