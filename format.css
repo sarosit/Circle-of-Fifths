@@ -83,7 +83,7 @@ header {
     width: 100%;
     position: absolute;
     text-align: center;
-    visibility: hidden;
+    visibility: visible;
 }
 
 #scale-display {
@@ -92,10 +92,10 @@ header {
     height: 100%;
     width: 100%;
     position: absolute;
-    visibility: hidden;
+    color: black;
 }
 
-#chord-display {
+/* #chord-display {
     display: grid;
     grid-template-rows: 1fr 1fr 1fr;
     grid-template-columns: 1fr 1fr 1fr;
@@ -103,20 +103,12 @@ header {
     width: 100%;
     position: absolute;
     visibility: hidden;
-}
+} */
 
 #chord-display:nth-child(2n-1) {
     background-color: #ddd;
     opacity: 0.4;
 }
-
-/* #content-toggle {
-    position: absolute;
-    display: grid;
-    grid-template-rows: 1fr 1fr;
-    font-size: 20px;
-    visibility: hidden;
-} */
 
 #chords:hover, #scales:hover {
     background-color: gray;
