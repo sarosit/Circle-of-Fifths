@@ -93,6 +93,8 @@ const getModes = function (starterNote) {
   return myModes
 };
 
+
+
 let modes = new Map()
 
 for (let i = 0; i < 6; i++) {
@@ -120,7 +122,3 @@ function makeHarmonic(scale) {
   scale = makeMelodic(scale, 5);
   return scale
 }
-
-
-
-
