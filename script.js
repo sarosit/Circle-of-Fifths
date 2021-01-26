@@ -30,8 +30,7 @@ function makeScales(tonicScale){
             modeDiv.innerHTML = currentMode[i];
             modeBox.appendChild(modeDiv);
         }
-    }
-    
+    }  
 }
 
 $(".segment").click(function () {
@@ -52,19 +51,10 @@ function createHarmony(tonicScale) {
 
     makeScales(tonicScale)
 }
-
 function getRootNote(){
     return document.getElementsByClassName('note-container')[0].innerHTML;
 }
-
 $("#melMinor").click(() => createHarmony(getMelMinorScale(getRootNote())));
-
 $("#harmMinor").click(() => createHarmony(getHarmMinorScale(getRootNote())));
-
 $("#harmMajor").click(() => createHarmony(getHarmMajorScale(getRootNote())));
-
 $("#major").click(() => createHarmony(getMajorScale(getRootNote())));
-
-
-
-

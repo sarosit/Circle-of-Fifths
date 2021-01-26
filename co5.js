@@ -1,48 +1,53 @@
-const notes = [{
-  "Name" : "C"
-},
-{
-  "Name" : "C#",
-  "FlatName" : "Db"
-},
-{
-  "Name" : "D"
-},
-{
-  "Name" : "D#",
-  "FlatName" : "Eb"
-},
-{
-  "Name" : "E"
-},
-{
-  "Name" : "F"
-},
-{
-  "Name" : "F#",
-  "FlatName" : "Gb"
-},
-{
-  "Name" : "G"
-},
-{
-  "Name" : "G#",
-  "FlatName" : "Ab"
-},
-{
-  "Name" : "A"
-},
-{
-  "Name" : "A#",
-  "FlatName" : "Bb"
-},
-{
-  "Name" : "B"
-}];
+// const notes = [{
+//   "Name" : "C"
+// },
+// {
+//   "Name" : "C#",
+//   "FlatName" : "Db"
+// },
+// {
+//   "Name" : "D"
+// },
+// {
+//   "Name" : "D#",
+//   "FlatName" : "Eb"
+// },
+// {
+//   "Name" : "E"
+// },
+// {
+//   "Name" : "F"
+// },
+// {
+//   "Name" : "F#",
+//   "FlatName" : "Gb"
+// },
+// {
+//   "Name" : "G"
+// },
+// {
+//   "Name" : "G#",
+//   "FlatName" : "Ab"
+// },
+// {
+//   "Name" : "A"
+// },
+// {
+//   "Name" : "A#",
+//   "FlatName" : "Bb"
+// },
+// {
+//   "Name" : "B"
+// }];
+
+
+const majorChordSymbols = ['maj7', 'min7', 'min7', 'maj7', '7', 'min7', 'min7b5'];
+const melodicChordSymbols = ['minMaj7', 'min7', 'maj7#5', '7', '7', 'min7b5', 'min7b5'];
+const harmMinorChordSymbols = ['minMaj7', 'min7b5', 'maj7b5', 'min7', '7', 'maj7', 'dim7'];
+const harmMajChordsSymbols = ['maj7', 'min7b5', 'min7', 'minMaj7', '7', 'maj7#5', 'dim7'];
 
 const notesSharp = ['C', 'C#', 'D', 'D#', 'E', 'F', 'F#', 'G', 'G#', 'A', 'A#', 'B'];
 const notesb = ['C', 'Db', 'D', 'Eb', 'E', 'F', 'Gb', 'G', 'Ab', 'A', 'Bb', 'B'];
-
 
 const sharpKeys = ['C', 'G', 'D', 'A', 'E', 'B', 'A#', 'G#', 'F#', 'C#', 'D#'];
 const stencilMajor = [0, 2, 4, 5, 7, 9, 11];
@@ -76,7 +81,7 @@ function getHarmMajorScale (starterNote) {
 };
 
 function getNotesByAccidental(starterNote , accidental){
-  i = 0;
+  let i = 0;
   let myNewScale = [];
   let currentNote = starterNote;
   let startingIndex = accidental.indexOf(starterNote);
@@ -88,8 +93,6 @@ function getNotesByAccidental(starterNote , accidental){
     return myNewScale;
 };
 
-
-
 function getModes (tonicScale) {
   let myModes = [];
   for (let i = 0; i < 6; i++) {
@@ -100,30 +103,12 @@ function getModes (tonicScale) {
 };
 
 
+function getMajChords(scale){
+  let majChords = [];
+  for(let i = 0, j = 0; i < 7, j < 7; i++, j++){
+    majChords.push(scale[i].concat(majorChordSymbols[j]))
+  }
+  return majChords
+}
 
-
-// function makeMelodic(scale, n) {
-//   if (scale.some(el => el.includes('#') === true && scale[n] !== 'C')) {
-//     scale[n] = notesSharp[notesSharp.indexOf(scale[n]) - 1];
-
-//   } else if (scale.some(el => el.includes('b') === true && scale[n] !== 'C')) {
-//     scale[n] = notesb[notesb.indexOf(scale[n]) - 1];
-
-//   } else if (scale.some(el => el.includes('#') === true)) {
-//     scale[n] = notesSharp[notesSharp.indexOf(scale[n]) + 11];
-
-//   } else {
-//     scale[n] = notesb[notesb.indexOf(scale[n]) + 11];
-//   };
-//   return scale
-// };
-
-// console.log(makeMelodic(getNamedScale('C')), 2)
-
-// let myNewScale = myScale.makeHarmonicMajor().makeMelodicMinor()
-
-// function makeHarmonic(scale) {
-//   scale = makeMelodic(scale, 2);
-//   scale = makeMelodic(scale, 5);
-//   return scale
-// };
+console.log(getMajChords(getMajorScale('C')))
