@@ -115,20 +115,13 @@ header {
     cursor: pointer;
 }
 
-#ionian {
+#ionian, .modeDiv {
     display: grid;
     grid-template-columns: repeat(7, 1fr);
-    align-items: center;
     text-decoration-color: black;
     padding: none;
 }
 
-.modeDiv {
-    display: grid;
-    grid-template-columns: repeat(7, 1fr);
-    text-decoration-color: black;
-    padding: none;
-}
 
 .note-container {
     display: flex;
