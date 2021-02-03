@@ -94,15 +94,22 @@ header {
     font-size: 1.4em;
 }
 
-/* #chord-display {
+#chord-display {
     display: grid;
     grid-template-rows: 1fr 1fr 1fr;
     grid-template-columns: 1fr 1fr 1fr;
     height: 100%;
     width: 100%;
-    position: absolute;
-    visibility: hidden;
-} */
+    position:absolute
+}
+
+.chordBox {
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    border: solid;
+    border-width: 1px;
+}
 
 #chord-display:nth-child(2n-1) {
     background-color: #ddd;
