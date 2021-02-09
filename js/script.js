@@ -1,4 +1,4 @@
-'use strict'
+"use strict"
 
 let toggleChord = document.getElementById("chords");
 let contentChord = document.getElementById("chord-display");
@@ -7,6 +7,11 @@ let contentScale = document.getElementById("scale-display");
 let toggle = document.getElementById("content-toggle");
 let userMess = document.getElementById("user-message");
 let harmony = document.getElementById("melMinor")
+
+function toggleDisplay(visibility1, visibility2){
+    contentScale.style.visibility = `${visibility1}`
+    contentChord.style.visibility = `${visibility2}`
+}
 
 function makeScales(tonicScale) {
     let scaleBox = document.createElement("div");
@@ -36,36 +41,18 @@ function makeScales(tonicScale) {
     }
 }
 
-$("#scales").click(function () {
-    toggleScale.setAttribute('scaleMode', '');
-    toggleChord.removeAttribute('chordMode', '');
-    createHarmony(getScale(getRootNote(), stencilMajor));
-
-});
-
-$(".segment").click(function () {
-
+function makeChords(chordArr) {
     $("#ionian").remove();
     $(".modeDiv").remove();
     $(".chordBox").remove();
     userMess.style.visibility = 'hidden'
-    let note = this.id;
-    harmony.setAttribute('noteValue', note)
-
-    // if(toggleScale.getAttribute('scaleMode') === true){
-    //     let tonicScale = getScale(note, stencilMajor);
-    //     makeScales(tonicScale);
-    // }    
-    if (toggleScale.getAttribute('chordMode') === true) {
-        let tonicScale = getScale(note, stencilMajor);
-        getChords(tonicScale, majorChordSymbols);
-    } else {
-        let tonicScale = getScale(note, stencilMajor);
-        makeScales(tonicScale);
+    for (let i = 0; i < 7; i++) {
+        let chords = document.createElement("div")
+        chords.className = "chordBox"
+        chords.innerHTML = chordArr[i]
+        contentChord.append(chords)
     }
-
-});
-
+}
 
 function createHarmony(tonicScale) {
 
@@ -78,6 +65,37 @@ function createHarmony(tonicScale) {
 function getRootNote() {
     return harmony.getAttribute('noteValue');
 }
+
+$("#scales").click(function () {
+    toggleScale.setAttribute('scaleMode', '');
+    toggleChord.removeAttribute('chordMode', '');
+    createHarmony(music.getScale(music.getRootNote(), stencilMajor));
+
+});
+
+$(".segment").click(function () {
+
+    $("#ionian").remove();
+    $(".modeDiv").remove();
+    $(".chordBox").remove();
+    userMess.style.visibility = 'hidden'
+    let note = this.id;
+    harmony.setAttribute('noteValue', note)
+    if (toggleScale.getAttribute('chordMode') === true) {
+        let tonicScale = getScale(note, stencilMajor);
+        getChords(tonicScale, majorChordSymbols);
+    } else {
+        let tonicScale = getScale(note, stencilMajor);
+        makeScales(tonicScale);
+    }
+
+});
+
+$("#chords").click(function () {
+    toggleChord.setAttribute('chordMode', 'chordMode');
+    toggleChord.removeAttribute('scaleMode', '');
+    makeChords(getChords(getScale(getRootNote(), stencilMajor), majorChordSymbols));
+})
 
 
 
@@ -112,10 +130,3 @@ $("#major").click(() => {
         createHarmony(getScale(getRootNote(), stencilMajor))
     }
 });
-
-console.log(toggleChord.attributes)
-
-
-
-
-

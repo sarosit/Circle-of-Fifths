@@ -25,15 +25,78 @@ html
                         button.harmony#harmMajor Harmonic Major
                     .display-wrapper
                         #scale-display
+                            #ionian
+                                #i1
+                                #i2
+                                #i3
+                                #i4
+                                #i5
+                                #i6
+                                #i7
+                            #Dorian
+                                #d1
+                                #d2
+                                #d3
+                                #d4
+                                #d5
+                                #d6
+                                #d7
+                            #phrygian
+                                #p1
+                                #p2
+                                #p3
+                                #p4
+                                #p5
+                                #p6
+                                #p7
+                            #lydian
+                                #l1
+                                #l2
+                                #l3
+                                #l4
+                                #l5
+                                #l6
+                                #l7
+                            #mixolydian
+                                #m1
+                                #m2
+                                #m3
+                                #m4
+                                #m5
+                                #m6
+                                #m7
+                            #Aolian
+                                #a1
+                                #a2
+                                #a3
+                                #a4
+                                #a5
+                                #a6
+                                #a7
+                            #locrian
+                                #loc1
+                                #loc2
+                                #loc3
+                                #loc4
+                                #loc5
+                                #loc6
+                                #loc7
 
                         #chord-display
-                            
+                            #chord1
+                            #chord2
+                            #chord3
+                            #chord4
+                            #chord5
+                            #chord6
+                            #chord7
+
                         #user-message
                             p Choose a Key on The Circle
 
             footer
                 span Tomas Sarosi
         
-        script(src='js/scale.js' type="text/javascript")
-        script(src='js/chords.js' type="text/javascript")
+        script(src='js/arrayExtensions.js' type="module")
+        script(src='js/music.js' type="text/javascript")
         script(src='js/script.js' type="text/javascript")
