@@ -97,8 +97,6 @@ $("#chords").click(function () {
     makeChords(getChords(getScale(getRootNote(), stencilMajor), majorChordSymbols));
 })
 
-
-
 $("#melMinor").click(() => {
     if (toggleChord.getAttribute('chordMode') === 'chordMode') {
         makeChords(getChords(getScale(getRootNote(), stencilMelodicMinor), melodicChordSymbols))

@@ -1,29 +1,29 @@
 'use strict'
 
-Array.prototype.circularArrayByIndex = function(index) {
+Array.prototype.circularArrayByIndex = function (index) {
   let newArr = [];
   if (index > this.length - 1) {
-      throw 'Index is too damn high.'
+    throw 'Index is too damn high.'
   }
   for (let i = index; i < this.length; i++) {
-      newArr.push(this[i]);
+    newArr.push(this[i]);
   }
   for (let i = 0; i < index; i++) {
-      newArr.push(this[i]);
+    newArr.push(this[i]);
   }
   return newArr;
 }
 
-Array.prototype.circularArray = function(note) {
+Array.prototype.circularArray = function (note) {
   let newArr = [];
   if (this.includes(note) === false) {
-      throw 'Content not in Array'
+    throw 'Content not in Array'
   }
   for (let i = this.indexOf(note); i < this.length; i++) {
-      newArr.push(this[i]);
+    newArr.push(this[i]);
   }
   for (let i = 0; i < this.indexOf(note); i++) {
-      newArr.push(this[i]);
+    newArr.push(this[i]);
   }
   return newArr;
 }
@@ -44,52 +44,70 @@ const stencilHarmonicMajor = [0, 2, 4, 5, 7, 8, 11];
 
 class ScaleManager {
 
-  constructor(starterNote){
+  constructor(starterNote) {
     this.starterNote = starterNote;
   }
 
-  getMajorScale(){
+  getMajorScale() {
     let accidental = sharpKeys.includes(this.starterNote) ? notesSharp : notesb
     return accidental.circularArray(this.starterNote).filter((el, i) => stencilMajor.some(j => i === j));
   }
-  getMelMinorScale(){
+  getMelodicMinorScale() {
     let accidental = sharpKeys.includes(this.starterNote) ? notesSharp : notesb
     return accidental.circularArray(this.starterNote).filter((el, i) => stencilMelodicMinor.some(j => i === j));
   }
-  getHarmMinorScale(){
+  getHarmonicMinorScale() {
     let accidental = sharpKeys.includes(this.starterNote) ? notesSharp : notesb
     return accidental.circularArray(this.starterNote).filter((el, i) => stencilHarmonicMinor.some(j => i === j));
   }
-  getHarmMajorScale(){
+  getHarmonicMajorScale() {
     let accidental = sharpKeys.includes(this.starterNote) ? notesSharp : notesb
     return accidental.circularArray(this.starterNote).filter((el, i) => stencilHarmonicMajor.some(j => i === j));
   }
 
-  // getModes() {
-  //   let myModes = [];
-  //   for (let i = 0; i < 6; i++) {
-  //     this.getMajorScale().push(this.getMajorScale().shift());
-  //     myModes.push(Array.from(this.getMajorScale()));
-  //   };
-  //   return myModes
-  // }
-
-  getModes() {
+  getMajorModes() {
     let myModes = [];
-    for (let i in this){
-      myModes.push(this.circularArrayByIndex(i))
+    let scale = this.getMajorScale();
+    for (let i = 1; i < scale.length; i++){
+      myModes.push(scale.circularArrayByIndex(i));
     }
-    return myModes
+    return myModes;
+  }
+  getMelodicMinorModes() {
+    let myModes = [];
+    let scale = this.getMelodicMinorScale();
+    for (let i = 1; i < scale.length; i++){
+      myModes.push(scale.circularArrayByIndex(i));
+    }
+    return myModes;
+  }
+  getHarmonicMinorModes() {
+    let myModes = [];
+    let scale = this.getHarmonicMinorScale();
+    for (let i = 1; i < scale.length; i++){
+      myModes.push(scale.circularArrayByIndex(i));
+    }
+    return myModes;
+  }
+  getHarmonicMajorModes() {
+    let myModes = [];
+    let scale = this.getHarmonicMajorScale();
+    for (let i = 1; i < scale.length; i++){
+      myModes.push(scale.circularArrayByIndex(i));
+    }
+    return myModes;
   }
 
-  getChords(tonicScale, symbols) {
-    
-    return tonicScale.map((el, index) => el.concat(symbols[index]));
+  getMajorChords() {
+    return this.getMajorScale().map((el, index) => el.concat(majorChordSymbols[index]));
+  }
+  getMelodicMinorChords() {
+    return this.getMelodicMinorScale().map((el, index) => el.concat(melodicChordSymbols[index]));
+  }
+  getHarmonicMinorChords() {
+    return this.getHarmonicMinorScale().map((el, index) => el.concat(harmMinorChordSymbols[index]));
+  }
+  getHarmonicMajorChords() {
+    return this.getHarmonicMajorScale().map((el, index) => el.concat(harmMajChordSymbols[index]));
   }
 }
-
-// console.log(music.getNotesByAccidental('C', notesb))
-
-let scale = new ScaleManager('F')
-
-console.log(scale.getMajorScale().getModes())
