@@ -1,4 +1,6 @@
 "use strict"
+let article = document.getElementById("content");
+let mainDisplay = document.getElementById("content-wrapper");
 let toggleChord = document.getElementById("chords");
 let contentChord = document.getElementById("chord-display");
 let toggleScale = document.getElementById("scales");
@@ -20,8 +22,14 @@ let scaleContainerArray = [ionian, dorian, phrygian, lydian, mixolydian, aeolian
 function toggleDisplay(visibility1, visibility2){
     contentScale.style.visibility = `${visibility1}`
     contentChord.style.visibility = `${visibility2}`
-    userMess.style.visibility = 'hidden';
+    
 };
+
+function displayMode(){
+    mainDisplay.style.display = 'grid';
+    article.style.display = 'grid';
+    userMess.style.display = 'none';
+}
 
 function getRootNote() {
     return harmony.getAttribute('noteValue');
@@ -39,53 +47,55 @@ function populateNotes(scale, div){
 
 function populateMajorScales(tonicScale){
     populateNotes(tonicScale, ionian);
-    let modeManager = new ScaleManager(tonicScale[0]);
-    let modeArray = modeManager.getMajorModes();
+    let modeManager = new ScaleManager();
+    let modeArray = modeManager.root(tonicScale[0]).major().modes();
     for(let i = 1; i< 7; i++){
-        populateNotes(modeArray[i-1], scaleContainerArray[i]);
+        populateNotes(modeArray[i], scaleContainerArray[i]);
     }
 };
 
-function populateMelodicMinorScales(tonicScale){
-    populateNotes(tonicScale, ionian);
-    let modeManager = new ScaleManager(tonicScale[0]);
-    let modeArray = modeManager.getMelodicMinorModes();
-    for(let i = 1; i< 7; i++){
-        populateNotes(modeArray[i-1], scaleContainerArray[i]);
-    }
-};
+// function populateMelodicMinorScales(tonicScale){
+//     populateNotes(tonicScale, ionian);
+//     let modeManager = new ScaleManager(tonicScale[0]);
+//     let modeArray = modeManager.getMelodicMinorModes();
+//     for(let i = 1; i< 7; i++){
+//         populateNotes(modeArray[i-1], scaleContainerArray[i]);
+//     }
+// };
 
-function populateHarmonicMinorScales(tonicScale){
-    populateNotes(tonicScale, ionian);
-    let modeManager = new ScaleManager(tonicScale[0]);
-    let modeArray = modeManager.getHarmonicMinorModes();
-    for(let i = 1; i< 7; i++){
-        populateNotes(modeArray[i-1], scaleContainerArray[i]);
-    }
-};
-function populateHarmonicMajorScales(tonicScale){
-    populateNotes(tonicScale, ionian);
-    let modeManager = new ScaleManager(tonicScale[0]);
-    let modeArray = modeManager.getHarmonicMajorModes();
-    for(let i = 1; i< 7; i++){
-        populateNotes(modeArray[i-1], scaleContainerArray[i]);
-    }
-};
+// function populateHarmonicMinorScales(tonicScale){
+//     populateNotes(tonicScale, ionian);
+//     let modeManager = new ScaleManager(tonicScale[0]);
+//     let modeArray = modeManager.getHarmonicMinorModes();
+//     for(let i = 1; i< 7; i++){
+//         populateNotes(modeArray[i-1], scaleContainerArray[i]);
+//     }
+// };
+// function populateHarmonicMajorScales(tonicScale){
+//     populateNotes(tonicScale, ionian);
+//     let modeManager = new ScaleManager(tonicScale[0]);
+//     let modeArray = modeManager.getHarmonicMajorModes();
+//     for(let i = 1; i< 7; i++){
+//         populateNotes(modeArray[i-1], scaleContainerArray[i]);
+//     }
+// };
 
 function populateChords(chords){
     for (let i = 0; i < 7; i++) {
-        contentChord.childNodes[i].innerHTML = chords[i];
+        contentChord.childNodes[i].innerHTML = chords[i]; 
     }
 }
 
 $(".segment").click(function () {
 
+    displayMode();
     $(".note-container").remove();
     toggleDisplay('visible', 'hidden')
+    
     let note = this.id;
     harmony.setAttribute('noteValue', note);
-    let scaleManager = new ScaleManager(this.id);
-    let scale = scaleManager.getMajorScale();
+    let scaleManager = new ScaleManager();
+    let scale = scaleManager.root(note).major().scale();
     populateMajorScales(scale);
 });
 

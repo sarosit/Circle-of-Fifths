@@ -7,14 +7,19 @@
     <link rel="stylesheet" href="css/format.css" type="text/css">
     <link rel="stylesheet" href="css/graphic.css" type="text/css">
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.2/jquery.min.js"></script>
+    <script src="js/jquery.js" type="text/javascript"></script>
+    <script src="js/newMusic.js" type="text/javascript"></script>
   </head>
   <body>
     <div class="container">
       <header>
         <div id="title">Circle of Fifths</div>
       </header>
-      <article>
+      <article id="content">
         <div class="circle-wrapper">
+          <div id="user-message">
+            <p>Choose a Key on The Circle</p>
+          </div>
           <svg class="box" id="box" width="100%" height="600" viewbox="0 0 100 100">
                       <g class="segment" id="C">
                         <path stroke="black" fill="none" stroke-width=".35" d="M47.32050807568877 40 A47.32050807568877 150, 0, 0 1, 52.67949192431123 40 L50 50 L47.32050807568877 40" transform="rotate(0,50,50)"></path>
@@ -128,7 +133,7 @@
                       <text id="accidentals" x="41.1" y="37">1♭</text>
           </svg>
         </div>
-        <div class="content-wrapper">
+        <div class="content-wrapper" id="content-wrapper">
           <header>
             <div id="scales">Scales and Modes</div>
             <div id="chords">Chords</div>
@@ -158,16 +163,11 @@
               <div id="chord6"></div>
               <div id="chord7"></div>
             </div>
-            <div id="user-message">
-              <p>Choose a Key on The Circle</p>
-            </div>
           </div>
         </div>
       </article>
       <footer><span>Tomas Sarosi</span></footer>
     </div>
-    <script src="js/jquery.js" type="text/javascript"></script>
-    <script src="js/music.js" type="text/javascript"></script>
     <script src="js/newScript.js" type="text/javascript"></script>
   </body>
 </html>

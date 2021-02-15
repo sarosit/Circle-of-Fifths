@@ -7,14 +7,19 @@ html
         link(rel='stylesheet' href='css/format.css' type='text/css')
         link(rel='stylesheet' href='css/graphic.css' type='text/css')
         script(src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.2/jquery.min.js")
+        script(src='js/jquery.js' type="text/javascript")
+        script(src='js/newMusic.js' type="text/javascript")
     body
         .container
             header
                 #title Circle of Fifths
-            article
+            article#content
+                
                 .circle-wrapper
+                    #user-message
+                        p Choose a Key on The Circle
                     include circle.pug
-                .content-wrapper
+                .content-wrapper#content-wrapper
                     header
                         #scales Scales and Modes
                         #chords Chords
@@ -42,12 +47,8 @@ html
                             #chord6
                             #chord7
 
-                        #user-message
-                            p Choose a Key on The Circle
-
             footer
                 span Tomas Sarosi
 
-        script(src='js/jquery.js' type="text/javascript")
-        script(src='js/music.js' type="text/javascript")
+        
         script(src='js/newScript.js' type="text/javascript")

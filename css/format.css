@@ -1,5 +1,5 @@
-article {
-    display: grid;
+#content {
+    display: solid;
     grid-template-columns: 1fr 1fr;
     height: auto;
     border-style: solid;
@@ -11,9 +11,9 @@ article {
     padding: 1em;
 }
 
-.content-wrapper {
+#content-wrapper {
     background: #eee;
-    display: grid;
+    display: none;
     grid-template-rows: .5fr .5fr 5fr;
     padding: none;
 }
@@ -76,14 +76,15 @@ header {
     border-left: solid;
     border-width: 1px;
     padding: none;
+    
 }
 
 #user-message {
     height: 100%;
     width: 100%;
-    position: absolute;
+    position: relative;
     text-align: center;
-    visibility: visible;
+    display: solid;
 }
 
 #scale-display {
