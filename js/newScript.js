@@ -1,4 +1,6 @@
 "use strict"
+import { MusicManager } from './newMusic.js';
+
 let article = document.getElementById("content");
 let mainDisplay = document.getElementById("content-wrapper");
 let toggleChord = document.getElementById("chords");
@@ -19,13 +21,41 @@ let locrian = document.getElementById("locrian");
 
 let scaleContainerArray = [ionian, dorian, phrygian, lydian, mixolydian, aeolian, locrian];
 
-function toggleDisplay(visibility1, visibility2){
-    contentScale.style.visibility = `${visibility1}`
-    contentChord.style.visibility = `${visibility2}`
+function toggleDisplay() {
+    switch(article.getAttribute('mode')){
+        case 'scaleMode':
+            contentScale.style.visibility = 'visible';
+            contentChord.style.visibility = 'hidden';
+            break;
+        
+        case 'chordMode':
+            contentScale.style.visibility = 'hidden';
+            contentChord.style.visibility = 'visible';
+    }
     
+
 };
 
-function displayMode(){
+function setKeyTonality(el, note) {
+    switch (article.getAttribute('tonality')) {
+        case 'major':
+            return el.root(note).major();
+
+        case 'melodicMinor':
+            return el.root(note).melodicMinor();
+
+        case 'harmonicMinor':
+            return el.root(note).harmonicMinor();
+
+        case 'harmonicMajor':
+            return el.root(note).harmonicMajor();
+
+        default:
+            return el.root(note).major();
+    }
+}
+
+function displayMode() {
     mainDisplay.style.display = 'grid';
     article.style.display = 'grid';
     userMess.style.display = 'none';
@@ -35,109 +65,106 @@ function getRootNote() {
     return harmony.getAttribute('noteValue');
 };
 
-function populateNotes(scale, div){
+function populateNotes(scale, div) {
     for (let i = 0; i < 7; i++) {
         let noteBox = document.createElement("div");
-        noteBox.setAttribute('id', `${i+1}`);
+        noteBox.setAttribute('id', `${i + 1}`);
         noteBox.className = 'note-container';
         div.appendChild(noteBox);
         div.childNodes[i].innerHTML = scale[i];
     }
 };
 
-function populateMajorScales(tonicScale){
+function populateScales(tonicScale) {
     populateNotes(tonicScale, ionian);
-    let modeManager = new ScaleManager();
-    let modeArray = modeManager.root(tonicScale[0]).major().modes();
-    for(let i = 1; i< 7; i++){
+    let note = getRootNote()
+    let modeManager = new MusicManager();
+    let modeArray = setKeyTonality(modeManager, note).modes();
+    for (let i = 1; i < 7; i++) {
         populateNotes(modeArray[i], scaleContainerArray[i]);
     }
 };
 
-// function populateMelodicMinorScales(tonicScale){
-//     populateNotes(tonicScale, ionian);
-//     let modeManager = new ScaleManager(tonicScale[0]);
-//     let modeArray = modeManager.getMelodicMinorModes();
-//     for(let i = 1; i< 7; i++){
-//         populateNotes(modeArray[i-1], scaleContainerArray[i]);
-//     }
-// };
+function createHarmony(){
+    let note = getRootNote()
+    let musicManager = new MusicManager();
 
-// function populateHarmonicMinorScales(tonicScale){
-//     populateNotes(tonicScale, ionian);
-//     let modeManager = new ScaleManager(tonicScale[0]);
-//     let modeArray = modeManager.getHarmonicMinorModes();
-//     for(let i = 1; i< 7; i++){
-//         populateNotes(modeArray[i-1], scaleContainerArray[i]);
-//     }
-// };
-// function populateHarmonicMajorScales(tonicScale){
-//     populateNotes(tonicScale, ionian);
-//     let modeManager = new ScaleManager(tonicScale[0]);
-//     let modeArray = modeManager.getHarmonicMajorModes();
-//     for(let i = 1; i< 7; i++){
-//         populateNotes(modeArray[i-1], scaleContainerArray[i]);
-//     }
-// };
+    if (article.getAttribute('mode') === 'scaleMode') {
+        let scale = setKeyTonality(musicManager, note).scale();
+        populateScales(scale);
+    } else {
+        let chords = setKeyTonality(musicManager, note).chords();
+        populateChords(chords);
+    }
+};
 
-function populateChords(chords){
-    for (let i = 0; i < 7; i++) {
-        contentChord.childNodes[i].innerHTML = chords[i]; 
+function populateChords(chords) {
+    for (let i = 1; i < 8; i++) {
+        contentChord.childNodes[2 * i - 1].innerHTML = chords[i - 1];
+        contentChord.childNodes[2 * i - 1].className = 'chord-container';
     }
 }
 
 $(".segment").click(function () {
 
+    article.setAttribute('tonality', 'major');
+    article.setAttribute('mode', 'scaleMode');
+
     displayMode();
     $(".note-container").remove();
-    toggleDisplay('visible', 'hidden')
+    toggleDisplay();
     
+
     let note = this.id;
     harmony.setAttribute('noteValue', note);
-    let scaleManager = new ScaleManager();
+
+    let scaleManager = new MusicManager();
     let scale = scaleManager.root(note).major().scale();
-    populateMajorScales(scale);
+    populateScales(scale);
 });
 
-$("#major").click(()=>{
+$("#major").click(() => {
+    article.setAttribute('tonality', 'major');
     $(".note-container").remove();
-    toggleDisplay('visible', 'hidden')
-    let root = getRootNote()
-    let note = new ScaleManager(root);
-    let scale = note.getMajorScale();
-    populateMajorScales(scale);
-});
-$("#melMinor").click(()=>{
-    $(".note-container").remove();
-    toggleDisplay('visible', 'hidden')
-    let root = getRootNote()
-    let note = new ScaleManager(root);
-    let scale = note.getMelodicMinorScale();
-    populateMelodicMinorScales(scale);
-});
-$("#harmMinor").click(()=>{
-    $(".note-container").remove();
-    toggleDisplay('visible', 'hidden')
-    let root = getRootNote()
-    let note = new ScaleManager(root);
-    let scale = note.getHarmonicMinorScale();
-    populateHarmonicMinorScales(scale);
-});
-$("#harmMajor").click(()=>{
-    $(".note-container").remove();
-    toggleDisplay('visible', 'hidden')
-    let root = getRootNote()
-    let note = new ScaleManager(root);
-    let scale = note.getHarmonicMajorScale();
-    populateHarmonicMajorScales(scale);
+    toggleDisplay()
+    createHarmony()
 });
 
-$("#chords").click(()=>{
-    toggleChord.setAttribute('chordMode', 'chordMode');
-    toggleDisplay('hidden', 'visible');
-    let note = getRootNote();
-    let chordManager = new ScaleManager(note);
-    let chords = chordManager.getMajorChords()
-    console.log(chords);
-    populateChords(chords);
-})
+$("#melMinor").click(() => {
+
+    article.setAttribute('tonality', 'melodicMinor');
+    $(".note-container").remove();
+    toggleDisplay()
+    createHarmony()
+
+});
+
+$("#harmMinor").click(() => {
+
+    article.setAttribute('tonality', 'harmonicMinor');
+    $(".note-container").remove();
+    toggleDisplay()
+    createHarmony()
+});
+
+$("#harmMajor").click(() => {
+
+    article.setAttribute('tonality', 'harmonicMajor');
+    $(".note-container").remove();
+    toggleDisplay()
+    createHarmony()
+});
+
+$("#scales").click(() => {
+    $(".chord-container").remove();
+    article.setAttribute('mode', 'scaleMode');
+    toggleDisplay();
+    createHarmony();
+});
+
+$("#chords").click(() => {
+    $(".note-container").remove();
+    article.setAttribute('mode', 'chordMode');
+    toggleDisplay();
+    createHarmony();
+});
