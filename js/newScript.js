@@ -31,6 +31,12 @@ function toggleDisplay() {
         case 'chordMode':
             contentScale.style.visibility = 'hidden';
             contentChord.style.visibility = 'visible';
+            break
+
+        default:
+            contentScale.style.visibility = 'visible';
+            contentChord.style.visibility = 'hidden';
+
     }
     
 
