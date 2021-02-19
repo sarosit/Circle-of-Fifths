@@ -7,7 +7,6 @@
     <link rel="stylesheet" href="css/format.css" type="text/css">
     <link rel="stylesheet" href="css/graphic.css" type="text/css">
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.2/jquery.min.js"></script>
-    <script src="js/jquery.js" type="text/javascript"></script>
     <script src="js/newMusic.js" type="module"></script>
   </head>
   <body>
@@ -134,7 +133,7 @@
           </svg>
         </div>
         <div class="content-wrapper" id="content-wrapper">
-          <header>
+          <header class="display-mode">
             <div id="scales">Scales and Modes</div>
             <div id="chords">Chords</div>
           </header>
@@ -146,6 +145,7 @@
           </div>
           <div class="display-wrapper">
             <div id="scale-display">
+              <div id="scale-name-container"> </div>
               <div id="ionian"></div>
               <div id="dorian"></div>
               <div id="phrygian"></div>

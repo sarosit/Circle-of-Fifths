@@ -7,7 +7,7 @@ html
         link(rel='stylesheet' href='css/format.css' type='text/css')
         link(rel='stylesheet' href='css/graphic.css' type='text/css')
         script(src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.2/jquery.min.js")
-        script(src='js/jquery.js' type="text/javascript")
+        //- script(src='js/jquery.js' type="text/javascript")
         script(src='js/newMusic.js' type="module")
     body
         .container
@@ -20,7 +20,7 @@ html
                         p Choose a Key on The Circle
                     include circle.pug
                 .content-wrapper#content-wrapper
-                    header
+                    header.display-mode
                         #scales Scales and Modes
                         #chords Chords
                     .harmony-container
@@ -30,6 +30,8 @@ html
                         button.harmony#harmMajor Harmonic Major
                     .display-wrapper
                         #scale-display
+                            #scale-name-container 
+                
                             #ionian
                             #dorian
                             #phrygian
@@ -49,6 +51,4 @@ html
 
             footer
                 span Tomas Sarosi
-
-        
         script(src='js/newScript.js' type="module")

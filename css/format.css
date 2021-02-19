@@ -1,3 +1,17 @@
+#title {
+    background: #eee;
+    display: flex;
+    justify-content: center;
+    border: solid;
+    border-bottom: none;
+    border-width: 1px;
+    font-size: 2em;
+    padding: 10px;
+    height: auto;
+    width: 100%;
+    margin: 0em;
+}
+
 #content {
     display: solid;
     grid-template-columns: 1fr 1fr;
@@ -18,25 +32,11 @@
     padding: none;
 }
 
-#title {
-    background: #eee;
-    display: flex;
-    justify-content: center;
-    border: solid;
-    border-bottom: none;
-    border-width: 1px;
-    font-size: 2em;
-    padding: 10px;
-    height: auto;
-    width: 100%;
-    margin: 0em;
-}
-
-header {
+.display-mode {
     display: flex;
     justify-content: space-evenly;
     padding: none;
-    width: auto;
+    width: 100%;
 }
 
 #scales, #chords {
@@ -52,11 +52,11 @@ header {
     width: 100%;
 }
 
-
 .harmony-container {
     display: grid;
     grid-template-columns: repeat(4, 1fr);
     border: none;
+    width: 100%;
 }
 
 .harmony {
@@ -76,7 +76,6 @@ header {
     border-left: solid;
     border-width: 1px;
     padding: none;
-    
 }
 
 #user-message {
@@ -87,21 +86,13 @@ header {
     display: solid;
 }
 
-#scale-display {
-    height: 100%;
-    width: 100%;
-    position: absolute;
-    color: black;
-    font-size: 1.4em;
-}
-
 #chord-display {
     display: grid;
     grid-template-rows: 1fr 1fr 1fr;
     grid-template-columns: 1fr 1fr 1fr;
     height: 100%;
     width: 100%;
-    position:absolute
+    position: absolute
 }
 
 .chord-container {
@@ -112,29 +103,90 @@ header {
     border-width: 1px;
 }
 
-#chord-display:nth-child(2n-1) {
-    background-color: #ddd;
-    opacity: 0.4;
-}
-
 #chords:hover, #scales:hover {
     background-color: gray;
     color: white;
     cursor: pointer;
 }
 
-#scale-display, .modeDiv {
+#scale-display {
     display: grid;
-    grid-template-columns: repeat(7, 1fr);
+    grid-template-columns: 1fr 7fr;
+    grid-template-rows: repeat(7, 1fr);
+    grid-template-areas: 
+    "scale-name    ionian"
+    "scale-name    dorian"
+    "scale-name    phrygian"
+    "scale-name    lydian"
+    "scale-name    mixolydian"
+    "scale-name    aeolian"
+    "scale-name    locrian"
+    ;
     text-decoration-color: black;
     padding: none;
+    position: absolute;
+    height: 100%;
+    width: 100%;
 }
 
+#scale-name-container {
+    grid-area: scale-name;
+    display: flex;
+    flex-direction: column;
+    width: auto;
+}
+
+
+#ionian {
+    grid-area: ionian;
+}
+#dorian {
+    grid-area: dorian;
+}
+#phrygian{
+    grid-area: phrygian;
+}
+#lydian {
+    grid-area: lydian;
+}
+#mixolydian {
+    grid-area: mixolydian;
+}
+#aeolian {
+    grid-area: aeolian;
+}
+#locrian {
+    grid-area: locrian;
+}
+
+.scale-name{
+    padding: 2px;
+    display: flex;
+    /* justify-content: space-around; */
+    align-content: space-between;
+    height: 100%;
+    border-bottom: solid;
+    border-width: 1px;
+}
+    
+
+#scale-display>div {
+    display: flex;
+    align-items: vertical;
+    justify-content: space-evenly;
+    border: solid;
+    border-width: 1px;
+    height: auto;
+    width: 100%;
+}
 
 .note-container {
     display: flex;
     justify-content: space-around;
-    border: solid;
+    align-content: center;
+    border: none;
     border-width: 0.2px;
     padding: 1em;
+    height: auto;
+    font-size: 120%;
 }

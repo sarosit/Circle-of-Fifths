@@ -43,8 +43,7 @@ export class MusicManager {
         ['minMaj7', 'min7b5', 'maj7b5', 'min7', '7', 'maj7', 'dim7'],
         ['maj7', 'min7b5', 'min7', 'minMaj7', '7', 'maj7#5', 'dim7']
     ];
-    rootNote = 'C';
-    
+    rootNote = 'C';  
     constructor() {
     }
     root(v) {

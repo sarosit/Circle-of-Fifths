@@ -10,6 +10,7 @@ let contentScale = document.getElementById("scale-display");
 let toggle = document.getElementById("content-toggle");
 let userMess = document.getElementById("user-message");
 let harmony = document.getElementById("melMinor");
+let scaleName = document.getElementById("scale-name-container")
 
 let ionian = document.getElementById("ionian");
 let dorian = document.getElementById("dorian");
@@ -20,6 +21,12 @@ let aeolian = document.getElementById("aeolian");
 let locrian = document.getElementById("locrian");
 
 let scaleContainerArray = [ionian, dorian, phrygian, lydian, mixolydian, aeolian, locrian];
+
+let scaleNameMap = new Map();
+scaleNameMap.set('major', ['Ionian', 'Dorian', 'Phrygian', 'Lydian', 'Mixolydian', 'Aeolian', 'Locrian']);
+scaleNameMap.set('melodicMinor', ['Ionian b3', 'Dorian b2', 'Lydian Augmented', 'Lydian Dominant', 'Mixolydian b6', 'Aeolian b5', 'Altered Scale']);
+scaleNameMap.set('harmonicMinor', ['Aeolian #7', 'Locrian 6', 'Ionian Augmented', 'Dorian #4', 'Phrygian Dominant', 'Lydian #2', 'Super Locrian bb7']);
+scaleNameMap.set('harmonicMajor', ['Ionian b6', 'Dorian b5', 'Phrygian b4', 'Lydian b3', 'Mixolydian b2', 'Lydian Augmented #2', 'Locrian bb7']);
 
 function toggleDisplay() {
     switch(article.getAttribute('mode')){
@@ -81,6 +88,18 @@ function populateNotes(scale, div) {
     }
 };
 
+function displayScaleNames(key){
+    $(".scale-name").remove();
+    let scaleNameArray = scaleNameMap.get(key)
+    console.log(scaleNameArray)
+    for (let i = 0; i < 7; i++) {
+        let scaleNameBox = document.createElement("div");
+        scaleNameBox.className = 'scale-name';
+        scaleName.appendChild(scaleNameBox);
+        scaleNameBox.innerHTML = scaleNameArray[i];
+    }
+}
+
 function populateScales(tonicScale) {
     populateNotes(tonicScale, ionian);
     let note = getRootNote()
@@ -97,6 +116,9 @@ function createHarmony(){
 
     if (article.getAttribute('mode') === 'scaleMode') {
         let scale = setKeyTonality(musicManager, note).scale();
+        displayScaleNames(
+            article.getAttribute('tonality')
+        )
         populateScales(scale);
     } else {
         let chords = setKeyTonality(musicManager, note).chords();
@@ -114,19 +136,18 @@ function populateChords(chords) {
 $(".segment").click(function () {
 
     article.setAttribute('tonality', 'major');
-    article.setAttribute('mode', 'scaleMode');
+    if(article.hasAttribute('mode')!==true){
+        article.setAttribute('mode', 'scaleMode');
+    }
 
     displayMode();
     $(".note-container").remove();
+    
     toggleDisplay();
     
-
     let note = this.id;
     harmony.setAttribute('noteValue', note);
-
-    let scaleManager = new MusicManager();
-    let scale = scaleManager.root(note).major().scale();
-    populateScales(scale);
+    createHarmony();
 });
 
 $("#major").click(() => {
@@ -162,7 +183,6 @@ $("#harmMajor").click(() => {
 });
 
 $("#scales").click(() => {
-    $(".chord-container").remove();
     article.setAttribute('mode', 'scaleMode');
     toggleDisplay();
     createHarmony();
