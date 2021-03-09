@@ -12,7 +12,7 @@ html
     body
         .container
             header
-                #title Circle of Fifths
+                #title The Circle of Fifths
             article#content
                 
                 .circle-wrapper
@@ -21,8 +21,8 @@ html
                     include circle.pug
                 .content-wrapper#content-wrapper
                     header.display-mode
-                        #scales Scales and Modes
-                        #chords Chords
+                        button#scales Scales and Modes
+                        button#chords Chords
                     .harmony-container
                         button.harmony#major Major
                         button.harmony#melMinor Melodic Minor
@@ -31,24 +31,27 @@ html
                     .display-wrapper
                         #scale-display
                             #scale-name-container 
-                
-                            #ionian
-                            #dorian
-                            #phrygian
-                            #lydian
-                            #mixolydian
-                            #aeolian
-                            #locrian
+                            #scale-content 
+                                .mode#ionian
+                                .mode#dorian
+                                .mode#phrygian
+                                .mode#lydian
+                                .mode#mixolydian
+                                .mode#aeolian
+                                .mode#locrian
 
                         #chord-display
+                            
                             #chord1
+                            
                             #chord2
                             #chord3
                             #chord4
                             #chord5
                             #chord6
                             #chord7
-
+                            
+                            
             footer
                 span Tomas Sarosi
         script(src='js/newScript.js' type="module")

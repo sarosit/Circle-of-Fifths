@@ -184,6 +184,7 @@ $("#harmMajor").click(() => {
 
 $("#scales").click(() => {
     article.setAttribute('mode', 'scaleMode');
+    $(".note-container").remove();
     toggleDisplay();
     createHarmony();
 });

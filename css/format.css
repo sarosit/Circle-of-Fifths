@@ -1,35 +1,40 @@
+html {
+    width: 100%;
+    height: 100%;
+    margin: none;
+    overflow-y: hidden;
+}
+
 #title {
-    background: #eee;
+    padding: 2rem;
+
     display: flex;
     justify-content: center;
-    border: solid;
-    border-bottom: none;
-    border-width: 1px;
-    font-size: 2em;
-    padding: 10px;
-    height: auto;
-    width: 100%;
-    margin: 0em;
+    
+    font-size: 2rem;
 }
 
 #content {
-    display: solid;
+    padding: none;
+    margin: 20px;
+    display: block;
     grid-template-columns: 1fr 1fr;
-    height: auto;
-    border-style: solid;
-    border-width: 0.1em;
+    height: 100%;
+    width: auto;
 }
 
 .circle-wrapper {
-    background: #eee;
-    padding: 1em;
+    width: auto;
 }
 
 #content-wrapper {
-    background: #eee;
+    padding-top: 10%;
+
     display: none;
     grid-template-rows: .5fr .5fr 5fr;
-    padding: none;
+    
+    width: 100%;
+    height: auto;
 }
 
 .display-mode {
@@ -41,11 +46,7 @@
 
 #scales, #chords {
     border: solid;
-    border-bottom: none;
-    border-top: none;
     border-width: 1px;
-    color: black;
-    background-color: #eee;
     padding: 15px 32px;
     text-align: center;
     font-size: 16px;
@@ -59,11 +60,6 @@
     width: 100%;
 }
 
-.harmony {
-    border: solid;
-    border-width: 1px;
-}
-
 .harmony:hover {
     background-color: gray;
     color: white;
@@ -73,34 +69,65 @@
 .display-wrapper {
     position: relative;
     width: auto;
-    border-left: solid;
-    border-width: 1px;
+    height: auto;
     padding: none;
 }
 
 #user-message {
-    height: 100%;
-    width: 100%;
+    height: auto;
+    width: auto;
     position: relative;
     text-align: center;
     display: solid;
 }
 
 #chord-display {
-    display: grid;
-    grid-template-rows: 1fr 1fr 1fr;
-    grid-template-columns: 1fr 1fr 1fr;
-    height: 100%;
+    
+    height: 80%;
     width: 100%;
-    position: absolute
+    position: absolute;
+
+    border: solid;
+    border-width: 0px;
+}
+
+#chord-display {
+    display: grid;
+    grid-template-areas:
+    "tonic tonic tonic"
+    "chord2 chord3 chord4"
+    "chord5 chord6 chord7";
+}
+
+#chord1 {
+    grid-area: tonic;
+}
+#chord2 {
+    grid-area: chord2;
+}
+#chord3 {
+    grid-area: chord3;
+}
+#chord4 {
+    grid-area: chord4;
+}
+#chord5 {
+    grid-area: chord5;
+}
+#chord6 {
+    grid-area: chord6;
+}
+#chord7 {
+    grid-area: chord7;
 }
 
 .chord-container {
     display: flex;
     justify-content: space-around;
     align-items: center;
+
     border: solid;
-    border-width: 1px;
+    border-width: .5px;
 }
 
 #chords:hover, #scales:hover {
@@ -112,81 +139,45 @@
 #scale-display {
     display: grid;
     grid-template-columns: 1fr 7fr;
-    grid-template-rows: repeat(7, 1fr);
-    grid-template-areas: 
-    "scale-name    ionian"
-    "scale-name    dorian"
-    "scale-name    phrygian"
-    "scale-name    lydian"
-    "scale-name    mixolydian"
-    "scale-name    aeolian"
-    "scale-name    locrian"
-    ;
-    text-decoration-color: black;
-    padding: none;
-    position: absolute;
     height: 100%;
-    width: 100%;
-}
-
-#scale-name-container {
-    grid-area: scale-name;
-    display: flex;
-    flex-direction: column;
-    width: auto;
-}
-
-
-#ionian {
-    grid-area: ionian;
-}
-#dorian {
-    grid-area: dorian;
-}
-#phrygian{
-    grid-area: phrygian;
-}
-#lydian {
-    grid-area: lydian;
-}
-#mixolydian {
-    grid-area: mixolydian;
-}
-#aeolian {
-    grid-area: aeolian;
-}
-#locrian {
-    grid-area: locrian;
+    position: absolute;
 }
 
 .scale-name{
-    padding: 2px;
-    display: flex;
-    /* justify-content: space-around; */
-    align-content: space-between;
-    height: 100%;
-    border-bottom: solid;
-    border-width: 1px;
-}
+    padding: 1rem;
     
+    display:flex;
+    align-items: center;
 
-#scale-display>div {
-    display: flex;
-    align-items: vertical;
-    justify-content: space-evenly;
-    border: solid;
+    border-bottom: solid;
+    border-left: solid;
+    border-right: solid;
     border-width: 1px;
-    height: auto;
-    width: 100%;
+
+    height: 3vh;
+    width: auto;
+
+    font-size: 1.5vh;
+}
+
+.mode {
+    padding: 1rem;
+    padding-right: none;
+
+    display: flex;
+    justify-content:space-between;
+
+    border-bottom: solid;
+    border-right: solid;
+    border-width: 1px;
+
+    height: 3vh;
+    width: auto;
+
+    font-size: 2vh;
 }
 
 .note-container {
     display: flex;
     justify-content: space-around;
-    align-content: center;
-    border: none;
-    border-width: 0.2px;
-    padding: 1em;
-    height: auto;
-    font-size: 120%;
 }
