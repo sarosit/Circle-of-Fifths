@@ -1,16 +1,37 @@
-.container {
+:root{
+  --main-bg-color: rgb(255, 255, 255);
+  --b-bg-color: #fff0df;
+  --harmony-colour:#ffdc89;
+  --button-color: rgb(255, 208, 98);
+  --table-color: rgb(255, 255, 255);
+}
+
+body {
+  background-color: var(--main-bg-color);
+}
+.circle-wrapper, #content-wrapper{
+  background-color: var(--b-bg-color);
+}
+#scales, #chords{
+  background-color: var(--button-color);
+}
+.harmony{
+  background-color: var(--harmony-color);
+}
+#scale-display, #chord-display{
+  background-color: var(--table-color);
+}
+
+body {
   font-family: Verdana, Geneva, Tahoma, sans-serif;
   font-weight: lighter;
-  font-style: oblique;
+
 }
   
 .title, .harmony {
   font-family: Verdana, Geneva, Tahoma, sans-serif;
   font-weight: lighter;
-  font-style: oblique;
 }
-  
-#harmonic-type {
-  font-size: 15px;
+header, #user-message, footer{
+  color:rgb(68, 44, 0);
 }
-  

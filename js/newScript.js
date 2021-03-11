@@ -69,7 +69,7 @@ function setKeyTonality(el, note) {
 }
 
 function displayMode() {
-    mainDisplay.style.display = 'grid';
+    mainDisplay.style.display = 'flex';
     article.style.display = 'grid';
     userMess.style.display = 'none';
 }

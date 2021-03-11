@@ -10,16 +10,20 @@ html
         //- script(src='js/jquery.js' type="text/javascript")
         script(src='js/newMusic.js' type="module")
     body
-        .container
-            header
-                #title The Circle of Fifths
-            article#content
-                
-                .circle-wrapper
-                    #user-message
-                        p Choose a Key on The Circle
+
+        header
+            #title The Circle of Fifths
+            span#name Tomas
+        article#content
+
+            .circle-wrapper
+                #user-message
+                    p Choose a Key on The Circle
+                #circle-graphic    
                     include circle.pug
-                .content-wrapper#content-wrapper
+            
+            #content-wrapper
+                #content-parent 
                     header.display-mode
                         button#scales Scales and Modes
                         button#chords Chords
@@ -41,17 +45,17 @@ html
                                 .mode#locrian
 
                         #chord-display
-                            
+
                             #chord1
-                            
+
                             #chord2
                             #chord3
                             #chord4
                             #chord5
                             #chord6
                             #chord7
-                            
-                            
-            footer
-                span Tomas Sarosi
+
+
+        footer
+            span Sarosi
         script(src='js/newScript.js' type="module")

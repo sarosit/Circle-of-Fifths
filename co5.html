@@ -10,15 +10,15 @@
     <script src="js/newMusic.js" type="module"></script>
   </head>
   <body>
-    <div class="container">
-      <header>
-        <div id="title">The Circle of Fifths</div>
-      </header>
-      <article id="content">
-        <div class="circle-wrapper">
-          <div id="user-message">
-            <p>Choose a Key on The Circle</p>
-          </div>
+    <header>
+      <div id="title">The Circle of Fifths</div><span id="name">Tomas</span>
+    </header>
+    <article id="content">
+      <div class="circle-wrapper">
+        <div id="user-message">
+          <p>Choose a Key on The Circle</p>
+        </div>
+        <div id="circle-graphic">   
           <svg class="box" id="box" width="100%" height="600" viewbox="0 0 100 100">
                       <g class="segment" id="C">
                         <path stroke="black" fill="none" stroke-width=".35" d="M47.32050807568877 40 A47.32050807568877 150, 0, 0 1, 52.67949192431123 40 L50 50 L47.32050807568877 40" transform="rotate(0,50,50)"></path>
@@ -132,7 +132,9 @@
                       <text id="accidentals" x="41.1" y="37">1♭</text>
           </svg>
         </div>
-        <div class="content-wrapper" id="content-wrapper">
+      </div>
+      <div id="content-wrapper">
+        <div id="content-parent"> 
           <header class="display-mode">
             <button id="scales">Scales and Modes</button>
             <button id="chords">Chords</button>
@@ -167,9 +169,9 @@
             </div>
           </div>
         </div>
-      </article>
-      <footer><span>Tomas Sarosi</span></footer>
-    </div>
+      </div>
+    </article>
+    <footer><span>Sarosi</span></footer>
     <script src="js/newScript.js" type="module"></script>
   </body>
 </html>

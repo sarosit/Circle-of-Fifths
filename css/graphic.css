@@ -6,13 +6,13 @@
 }
 
 path {
-  fill: rgb(69, 69, 250);
-  opacity: 0.3;
+  fill: #89a0f3;
+  opacity: 0.7;
   text-align: center;
 }
 
 path:hover {
-  opacity: .5;
+  opacity: .9;
 }
   
 #major-key {
