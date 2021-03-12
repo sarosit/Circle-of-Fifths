@@ -1,16 +1,21 @@
 html {
     width: 100%;
-    height: 80%;
+    height: 100%;
     margin: none;
 
+}
+
+button:focus {
+    outline:1;
+    outline-color: rgba(0, 0, 0, 0.144);
 }
 
 body {
     height: auto;
 }
 
-.container {
-    height: 100%;
+#content {
+    height: auto;
 }
 
 header {
@@ -48,22 +53,13 @@ header {
 }
 
 .circle-wrapper {
-    border:solid;
+    border:none;
     border-width: 1px;
     border-radius: 15px;
+
     margin: 1rem;
     width: auto;
-    height: 100%;
-}
-
-#circle-graphic {
-    display: flex;
-    align-items: center;
-
-    padding-top: none;
-
-    height:100%;
-    width:100%;
+    height: auto;
 }
 
 .box {
@@ -73,12 +69,14 @@ header {
 #content-wrapper {
     display: none;
     align-items: center;
-    border: solid;
+
+    border: none;
     border-width: 1px;
     border-radius: 15px;
+
     margin: 1rem;
     width: auto;
-    height: 100%;
+    height: auto;
 }
 
 #content-parent{
@@ -94,31 +92,66 @@ header {
     justify-content: space-evenly;
     padding: none;
     width: 100%;
+
+    border: none;
+    border-width: 1px;
+    border-radius: 5px;
+
+    box-shadow: 1px 1px 2px 1px rgba(53, 53, 53, 0.356);
 }
 
-#scales, #chords{
-    border: solid;
+#scales{
+    border: none;
     border-width: 1px;
+    border-radius: 5px 0px 0px 5px;
+
     padding: 15px 32px;
+    margin: .1rem;
     text-align: center;
-    font-size: 16px;
+    width: 100%;
+}
+
+#chords{
+    border: none;
+    border-width: 1px;
+    border-radius: 0px 5px 5px 0px;
+
+    padding: 15px 32px;
+    margin:.1rem;
+    text-align: center;
     width: 100%;
 }
 
 .harmony-container {
+    margin: 1rem;
+
     display: grid;
     grid-template-columns: repeat(4, 1fr);
+    
     border: none;
-    width: 100%;
+    border-width: 1px;
+    border-radius: 10px;
+
+    width: auto;
 }
 
 .harmony{
-    border: solid;
-    border-width: 1px;
+    display:inline-block;
+
+    border: none;
+
+    margin: .1rem;
+    
     padding: 15px 32px;
     text-align: center;
     font-size: .7rem;
-    width: 100%;
+}
+
+#major{
+    border-radius: 10px 0px 0px 10px;
+}
+#harmMajor{
+    border-radius: 0px 10px 10px 0px;
 }
 
 .harmony:hover {
@@ -182,12 +215,15 @@ header {
 }
 
 .chord-container {
+    margin: .1rem;
+
     display: flex;
     justify-content: space-around;
     align-items: center;
 
     border: solid;
-    border-width: .5px;
+    border-width: 1px;
+    border-radius: 10px;
 }
 
 #chords:hover, #scales:hover {
@@ -200,7 +236,7 @@ header {
     grid-template-columns: 1fr 7fr;
     position: absolute;
     width: 100%;
-    height:100%;
+    height:auto;
 }
 #scale-content, #scale-name-container{
     display: grid;
@@ -209,16 +245,21 @@ header {
 
 .scale-name{
     padding: 1rem;
+    margin: .1rem;
     
     display:flex;
     align-items: center;
 
-    border-bottom: solid;
-    border-left: solid;
-    border-right: solid;
+    border: solid;
     border-width: 1px;
+    border-radius: 5px;
+    border-color: rgba(0, 0, 0, 0.274);
 
-    height: 4.7vh;
+
+    max-height: auto;
+    min-height: auto;
+
+    height: 4.5vh;
 
     font-size: .8rem;
 }
@@ -226,13 +267,20 @@ header {
 .mode {
     padding: 1rem;
     padding-right: none;
+    margin: .1rem;
 
     display: flex;
     justify-content:space-between;
 
-    border-bottom: solid;
-    border-right: solid;
+    border: solid;
     border-width: 1px;
+    border-radius: 5px;
+    border-color: rgba(0, 0, 0, 0.274);
+
+    max-height: auto;
+    min-height: auto;
+
+    height: auto;
 
     font-size: 1rem;
 }

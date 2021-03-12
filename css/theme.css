@@ -1,8 +1,8 @@
 :root{
   --main-bg-color: rgb(255, 255, 255);
-  --b-bg-color: #fff0df;
-  --harmony-colour:#ffdc89;
-  --button-color: rgb(255, 208, 98);
+  --b-bg-color: #f8f5f5;
+  --harmony-colour:#f0f0f0;
+  --button-color: rgb(224, 235, 240);
   --table-color: rgb(255, 255, 255);
 }
 
@@ -11,15 +11,19 @@ body {
 }
 .circle-wrapper, #content-wrapper{
   background-color: var(--b-bg-color);
+
+  box-shadow: 6px 6px 2px 1px rgba(53, 53, 53, 0.356);
 }
 #scales, #chords{
   background-color: var(--button-color);
 }
-.harmony{
+.harmony-container{
   background-color: var(--harmony-color);
+  box-shadow: 1px 1px 2px 1px rgba(53, 53, 53, 0.356);
 }
-#scale-display, #chord-display{
+.mode, .scale-name, .chord-container{
   background-color: var(--table-color);
+  
 }
 
 body {
