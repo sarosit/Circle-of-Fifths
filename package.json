@@ -1,0 +1,22 @@
+{
+  "name": "circle5",
+  "version": "1.0.0",
+  "description": "The purpose of this web app is to help musicians better understand functional harmony.",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/sarosit/Circle-of-Fifths.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/sarosit/Circle-of-Fifths/issues"
+  },
+  "homepage": "https://github.com/sarosit/Circle-of-Fifths#readme",
+  "dependencies": {
+    "chord-symbol": "^2.1.0"
+  }
+}

@@ -1,5 +1,9 @@
 "use strict"
 import { MusicManager } from './newMusic.js';
+import { chordParserFactory, chordRendererFactory } from '../node_modules/chord-symbol/lib/chord-symbol-esm.js';
+
+const parseChord = chordParserFactory();
+const renderChord = chordRendererFactory({ useShortNamings: true });
 
 let article = document.getElementById("content");
 let mainDisplay = document.getElementById("content-wrapper");
@@ -24,9 +28,9 @@ let scaleContainerArray = [ionian, dorian, phrygian, lydian, mixolydian, aeolian
 
 let scaleNameMap = new Map();
 scaleNameMap.set('major', ['Ionian', 'Dorian', 'Phrygian', 'Lydian', 'Mixolydian', 'Aeolian', 'Locrian']);
-scaleNameMap.set('melodicMinor', ['Ionian b3', 'Dorian b2', 'Lydian Augmented', 'Lydian Dominant', 'Mixolydian b6', 'Aeolian b5', 'Altered Scale']);
-scaleNameMap.set('harmonicMinor', ['Aeolian #7', 'Locrian 6', 'Ionian Augmented', 'Dorian #4', 'Phrygian Dominant', 'Lydian #2', 'Super Locrian bb7']);
-scaleNameMap.set('harmonicMajor', ['Ionian b6', 'Dorian b5', 'Phrygian b4', 'Lydian b3', 'Mixolydian b2', 'Lydian Augmented #2', 'Locrian bb7']);
+scaleNameMap.set('melodicMinor', ['Ionian ♭3', 'Dorian ♭2', 'Lydian Augmented', 'Lydian Dominant', 'Mixolydian ♭6', 'Aeolian ♭5', 'Altered Scale']);
+scaleNameMap.set('harmonicMinor', ['Aeolian ♯7', 'Locrian 6', 'Ionian Augmented', 'Dorian ♯4', 'Phrygian Dominant', 'Lydian ♯2', 'Super Locrian ♭♭7']);
+scaleNameMap.set('harmonicMajor', ['Ionian ♭6', 'Dorian ♭5', 'Phrygian ♭4', 'Lydian ♭3', 'Mixolydian ♭2', 'Lydian Augmented ♯2', 'Locrian ♭♭7']);
 
 function toggleDisplay() {
     switch(article.getAttribute('mode')){
@@ -91,7 +95,6 @@ function populateNotes(scale, div) {
 function displayScaleNames(key){
     $(".scale-name").remove();
     let scaleNameArray = scaleNameMap.get(key)
-    console.log(scaleNameArray)
     for (let i = 0; i < 7; i++) {
         let scaleNameBox = document.createElement("div");
         scaleNameBox.className = 'scale-name';
@@ -121,8 +124,14 @@ function createHarmony(){
         )
         populateScales(scale);
     } else {
-        let chords = setKeyTonality(musicManager, note).chords();
-        populateChords(chords);
+        if(contentChord.getAttribute('display-type')==='symbol'){
+            let chords = setKeyTonality(musicManager, note).chordSymbol();
+            populateChords(chords);
+        } else {
+            let chords = setKeyTonality(musicManager, note).chords();
+            populateChords(chords);
+        }
+        
     }
 };
 
@@ -153,16 +162,16 @@ $(".segment").click(function () {
 $("#major").click(() => {
     article.setAttribute('tonality', 'major');
     $(".note-container").remove();
-    toggleDisplay()
-    createHarmony()
+    toggleDisplay();
+    createHarmony();
 });
 
 $("#melMinor").click(() => {
 
     article.setAttribute('tonality', 'melodicMinor');
     $(".note-container").remove();
-    toggleDisplay()
-    createHarmony()
+    toggleDisplay();
+    createHarmony();
 
 });
 
@@ -170,16 +179,16 @@ $("#harmMinor").click(() => {
 
     article.setAttribute('tonality', 'harmonicMinor');
     $(".note-container").remove();
-    toggleDisplay()
-    createHarmony()
+    toggleDisplay();
+    createHarmony();
 });
 
 $("#harmMajor").click(() => {
 
     article.setAttribute('tonality', 'harmonicMajor');
     $(".note-container").remove();
-    toggleDisplay()
-    createHarmony()
+    toggleDisplay();
+    createHarmony();
 });
 
 $("#scales").click(() => {
@@ -192,6 +201,18 @@ $("#scales").click(() => {
 $("#chords").click(() => {
     $(".note-container").remove();
     article.setAttribute('mode', 'chordMode');
+    contentChord.setAttribute('display-type', 'symbol');
     toggleDisplay();
     createHarmony();
+});
+
+$("input").on("click", function() {
+    if(contentChord.getAttribute('display-type')==="symbol"){
+        contentChord.setAttribute('display-type', "letter");
+    } else {
+        contentChord.setAttribute('display-type', "symbol");
+    }
+    toggleDisplay();
+    createHarmony();
+
 });
