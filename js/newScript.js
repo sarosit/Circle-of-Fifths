@@ -10,7 +10,7 @@ let contentScale = document.getElementById("scale-display");
 let toggle = document.getElementById("content-toggle");
 let userMess = document.getElementById("user-message");
 let harmony = document.getElementById("melMinor");
-let scaleName = document.getElementById("scale-name-container")
+let scaleName = document.getElementsByClassName("name");
 
 let ionian = document.getElementById("ionian");
 let dorian = document.getElementById("dorian");
@@ -114,7 +114,7 @@ function displayScaleNames(key){
     for (let i = 0; i < 7; i++) {
         let scaleNameBox = document.createElement("span");
         scaleNameBox.className = 'scale-name';
-        scaleName.appendChild(scaleNameBox);
+        scaleName[i].appendChild(scaleNameBox);
         scaleNameBox.innerHTML = scaleNameArray[i];
     }
 }

@@ -1,0 +1,150 @@
+header {
+    display: flex;
+    justify-content: space-between;
+}
+
+#title {
+    display: flex;
+    align-content: center;
+}
+
+#name {
+    display: flex;
+    justify-content: end;
+    align-items: center;
+}
+
+#content {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    flex-grow: 1 1;
+}
+
+.circle-wrapper {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+}
+
+#user-message {
+    text-align: center;
+}
+
+#content-wrapper {
+    display: none;
+    flex-direction: column;
+}
+
+.display-mode {
+    display: flex;
+    justify-content: space-around;
+}
+
+.harmony-container {
+    display: flex;
+}
+
+.harmony {
+    display: inline-block;
+}
+
+.display-wrapper {
+    position: relative;
+    height: 100%;
+}
+
+#chord-display {
+    position: absolute;
+    width: auto;
+    height: 100%;
+    display: grid;
+    grid-template-areas:
+    "tonic tonic toggle"
+    "chord1 chord2 chord3"
+    "chord4 chord5 chord6";
+    grid-template-columns: 1fr 1fr 1fr;
+    grid-template-rows: 1fr 1fr 1fr;
+    grid-gap: 1rem;
+    overflow: auto;
+}
+
+#toggle-container {
+    grid-area: toggle 1fr;
+
+}
+#chord0{
+    grid-area: tonic;
+}
+#chord1 {
+    grid-area: chord1;
+}
+
+#chord2 {
+    grid-area: chord2;
+}
+
+#chord3 {
+    grid-area: chord3;
+}
+
+#chord4 {
+    grid-area: chord4;
+}
+
+#chord5 {
+    grid-area: chord5;
+}
+
+#chord6 {
+    grid-area: chord6;
+}
+
+#toggle-container{
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    flex-direction: column;
+}
+
+.chord {
+    display: flex;
+    flex-direction: column; 
+    justify-content: space-between;
+}
+
+#scale-display {
+    position: absolute;
+    height: 100%; width: 100%;
+    display: grid;
+    grid-template-rows: repeat(7 1fr);
+    grid-gap: 1rem;
+}
+
+.scale-box {
+    display: grid;
+    grid-template-columns: 1fr 3fr;
+    grid-gap: 1rem;
+}
+
+.name {
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    
+    height: auto; width: auto;
+}
+
+.mode {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around;
+
+    height: auto; width: auto;
+}
+
+.note-container {
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+}

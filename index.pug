@@ -3,13 +3,14 @@ html
     head
         meta(charset='utf-8')
         meta(name="viewport" content="width=device-width, initial-scale=1.0")
+        link(rel='stylesheet' href='css/layout.css' type='text/css')
         link(rel='stylesheet' href='css/theme.css' type='text/css')
-        link(rel='stylesheet' href='css/format.css' type='text/css')
+        link(rel='stylesheet' href='css/style.css' type='text/css')
         link(rel='stylesheet' href='css/graphic.css' type='text/css')
         script(src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.2/jquery.min.js")
         //- script(src='js/jquery.js' type="text/javascript")
         script(src='js/newMusic.js' type="module")
-        
+
     body
 
         header
@@ -20,7 +21,7 @@ html
                 span#user-message
                     p Choose a Key on The Circle
                 include circle.pug
-            
+
             #content-wrapper 
                 .display-mode
                     button#scales Scales and Modes
@@ -32,15 +33,28 @@ html
                     button.harmony#harmMajor Harmonic Major
                 .display-wrapper
                     #scale-display
-                        #scale-name-container
-                        #scale-content 
+                        .scale-box 
+                            .name
                             .mode#ionian
+                        .scale-box 
+                            .name
                             .mode#dorian
+                        .scale-box 
+                            .name
                             .mode#phrygian
+                        .scale-box 
+                            .name
                             .mode#lydian
+                        .scale-box 
+                            .name
                             .mode#mixolydian
+                        .scale-box 
+                            .name
                             .mode#aeolian
+                        .scale-box 
+                            .name
                             .mode#locrian
+
 
                     #chord-display
                         .chord#chord0
@@ -50,13 +64,14 @@ html
                         .chord#chord4
                         .chord#chord5
                         .chord#chord6
-                        
+
                         #toggle-container
+
                             label.switch 
                                 input#toggle-chord-view(type="checkbox")
                                 span.slider 
+                            span.toggle-message Flick the switch above to change the chord symbols!
 
         script(src='js/newScript.js' type="module")
         footer
             span Sarosi
-        

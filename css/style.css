@@ -8,16 +8,9 @@ button:focus {
     outline-color: rgba(0, 0, 0, 0.144);
 }
 
-header {
-    display: flex;
-    justify-content: space-between;
-}
-
 #title {
     padding: 1rem;
     margin-left: 5rem;
-    display: flex;
-    align-content: center;
     border-bottom: solid;
     border-width: 1px;
     width: 100%;
@@ -26,25 +19,15 @@ header {
 
 #name {
     padding: 1rem;
-    display: flex;
-    justify-content: end;
-    align-items: center;
     font-size: 1rem;
 }
 
 #content {
     padding: 2rem;
     margin: 1rem 1rem 1rem 1rem;
-    display: flex;
-    flex-direction: row;
-    justify-content: space-between;
-    flex-grow: 1 1;
 }
 
 .circle-wrapper {
-    display: flex;
-    flex-direction: column;
-    justify-content: space-around;
     border: none;
     border-width: 1px;
     border-radius: 15px;
@@ -53,13 +36,7 @@ header {
     width: 100%;
 }
 
-#user-message {
-    text-align: center;
-}
-
 #content-wrapper {
-    display: none;
-    flex-direction: column;
     margin: 1em;
     padding: 1rem;
     border: none;
@@ -69,8 +46,6 @@ header {
 }
 
 .display-mode {
-    display: flex;
-    justify-content: space-around;
     border: none;
     border-width: 1px;
     border-radius: 5px;
@@ -93,7 +68,6 @@ header {
 
 .harmony-container {
     margin: 1rem;
-    display: flex;
     border: none;
     border-width: 1px;
     border-radius: 5px;
@@ -101,7 +75,6 @@ header {
 }
 
 .harmony {
-    display: inline-block;
     border: none;
     margin: .1rem;
     padding: 1rem;
@@ -121,59 +94,6 @@ header {
 .harmony:hover {
     background-color: rgb(249, 251, 212);
     cursor: pointer;
-}
-
-.display-wrapper {
-    position: relative;
-    width: 100%;
-    height: 100%;
-}
-
-#chord-display {
-    position: absolute;
-    width: 100%;
-    height: 100%;
-    display: grid;
-    grid-template-areas:
-    "tonic tonic toggle"
-    "chord1 chord2 chord3"
-    "chord4 chord5 chord6";
-    grid-gap: 1rem
-}
-
-#toggle-container {
-    grid-area: toggle;
-}
-#chord0{
-    grid-area: tonic;
-}
-#chord1 {
-    grid-area: chord1;
-}
-
-#chord2 {
-    grid-area: chord2;
-}
-
-#chord3 {
-    grid-area: chord3;
-}
-
-#chord4 {
-    grid-area: chord4;
-}
-
-#chord5 {
-    grid-area: chord5;
-}
-
-#chord6 {
-    grid-area: chord6;
-}
-
-#toggle-container{
-    display: flex;
-    justify-content: space-around;
 }
 
 .switch{
@@ -229,46 +149,19 @@ input:checked+.slider:before {
     transform: translateX(26px);
 }
 
-
+.toggle-message{
+    font-size: .7rem;
+}
 
 .chord {
-    
-    padding: 2rem 0rem 2rem .8rem;
-
-    display: flex;
-    flex-direction: column;
-    
-    justify-content: space-between;
-
+    padding: 1rem;
     border: solid;
     border-width: 1px;
     border-radius: 10px;
 }
 
-#scale-display {
-    display: flex;
-    height: 100%;
-    width: 100%;
-    position: absolute;
-}
-
-#scale-name-container {
-    display: flex;
-    flex-direction: column;
-}
-
-#scale-content {
-    display: flex;
-    flex-direction: column;
-    width: 100%;
-}
-
-.scale-name {
-    padding: .5rem;
-    margin: .1rem;
-    display: flex;
-    align-items: center;
-    height: 100%;
+.name {
+    padding: 0rem .5rem 0rem .5rem;
     border: solid;
     border-width: 1px;
     border-radius: 5px;
@@ -276,22 +169,10 @@ input:checked+.slider:before {
 }
 
 .mode {
-    padding: .5rem;
-    margin: .1rem;
-    display: flex;
-    flex-direction: row;
-    justify-content: space-around;
-    height: 100%;
     border: solid;
     border-width: 1px;
     border-radius: 5px;
     border-color: rgba(0, 0, 0, 0.274);
-}
-
-.note-container {
-    display: flex;
-    justify-content: space-around;
-    align-items: center;
 }
 
 footer {

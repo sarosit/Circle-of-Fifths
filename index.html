@@ -3,8 +3,9 @@
   <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="css/layout.css" type="text/css">
     <link rel="stylesheet" href="css/theme.css" type="text/css">
-    <link rel="stylesheet" href="css/format.css" type="text/css">
+    <link rel="stylesheet" href="css/style.css" type="text/css">
     <link rel="stylesheet" href="css/graphic.css" type="text/css">
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.2/jquery.min.js"></script>
     <script src="js/newMusic.js" type="module"></script>
@@ -142,14 +143,32 @@
         </div>
         <div class="display-wrapper">
           <div id="scale-display">
-            <div id="scale-name-container"></div>
-            <div id="scale-content"> 
+            <div class="scale-box"> 
+              <div class="name"></div>
               <div class="mode" id="ionian"></div>
+            </div>
+            <div class="scale-box"> 
+              <div class="name"></div>
               <div class="mode" id="dorian"></div>
+            </div>
+            <div class="scale-box"> 
+              <div class="name"></div>
               <div class="mode" id="phrygian"></div>
+            </div>
+            <div class="scale-box"> 
+              <div class="name"></div>
               <div class="mode" id="lydian"></div>
+            </div>
+            <div class="scale-box"> 
+              <div class="name"></div>
               <div class="mode" id="mixolydian"></div>
+            </div>
+            <div class="scale-box"> 
+              <div class="name"></div>
               <div class="mode" id="aeolian"></div>
+            </div>
+            <div class="scale-box"> 
+              <div class="name"></div>
               <div class="mode" id="locrian"></div>
             </div>
           </div>
@@ -164,7 +183,7 @@
             <div id="toggle-container">
               <label class="switch"> 
                 <input id="toggle-chord-view" type="checkbox"><span class="slider"> </span>
-              </label>
+              </label><span class="toggle-message">Flick the switch above to change the chord symbols!</span>
             </div>
           </div>
         </div>
