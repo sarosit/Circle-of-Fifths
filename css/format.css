@@ -134,15 +134,21 @@ header {
     width: 100%;
     height: 100%;
     display: grid;
-    grid-template-areas: "tonic tonic toggle" "chord2 chord3 chord4" "chord5 chord6 chord7";
+    grid-template-areas:
+    "tonic tonic toggle"
+    "chord1 chord2 chord3"
+    "chord4 chord5 chord6";
+    grid-gap: 1rem
 }
 
 #toggle-container {
     grid-area: toggle;
 }
-
-#chord1 {
+#chord0{
     grid-area: tonic;
+}
+#chord1 {
+    grid-area: chord1;
 }
 
 #chord2 {
@@ -165,8 +171,9 @@ header {
     grid-area: chord6;
 }
 
-#chord7 {
-    grid-area: chord7;
+#toggle-container{
+    display: flex;
+    justify-content: space-around;
 }
 
 .switch{
@@ -222,11 +229,17 @@ input:checked+.slider:before {
     transform: translateX(26px);
 }
 
-.chord-container {
-    margin: .6rem;
+
+
+.chord {
+    
+    padding: 2rem 0rem 2rem .8rem;
+
     display: flex;
-    justify-content: space-around;
-    align-items: center;
+    flex-direction: column;
+    
+    justify-content: space-between;
+
     border: solid;
     border-width: 1px;
     border-radius: 10px;
@@ -256,7 +269,6 @@ input:checked+.slider:before {
     display: flex;
     align-items: center;
     height: 100%;
-    font-size: .9rem;
     border: solid;
     border-width: 1px;
     border-radius: 5px;

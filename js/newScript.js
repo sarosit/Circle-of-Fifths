@@ -1,9 +1,5 @@
 "use strict"
 import { MusicManager } from './newMusic.js';
-import { chordParserFactory, chordRendererFactory } from '../node_modules/chord-symbol/lib/chord-symbol-esm.js';
-
-const parseChord = chordParserFactory();
-const renderChord = chordRendererFactory({ useShortNamings: true });
 
 let article = document.getElementById("content");
 let mainDisplay = document.getElementById("content-wrapper");
@@ -31,6 +27,26 @@ scaleNameMap.set('major', ['Ionian', 'Dorian', 'Phrygian', 'Lydian', 'Mixolydian
 scaleNameMap.set('melodicMinor', ['Ionian ♭3', 'Dorian ♭2', 'Lydian Augmented', 'Lydian Dominant', 'Mixolydian ♭6', 'Aeolian ♭5', 'Altered Scale']);
 scaleNameMap.set('harmonicMinor', ['Aeolian ♯7', 'Locrian 6', 'Ionian Augmented', 'Dorian ♯4', 'Phrygian Dominant', 'Lydian ♯2', 'Super Locrian ♭♭7']);
 scaleNameMap.set('harmonicMajor', ['Ionian ♭6', 'Dorian ♭5', 'Phrygian ♭4', 'Lydian ♭3', 'Mixolydian ♭2', 'Lydian Augmented ♯2', 'Locrian ♭♭7']);
+
+let chordIntervalSymbol = new Map();
+chordIntervalSymbol.set('∆', ['1', '3', '5', '7']);
+chordIntervalSymbol.set('-7', ['1', '♭3', '5', '♭7']);
+chordIntervalSymbol.set('7', ['1', '3', '5', '♭7']);
+chordIntervalSymbol.set('ø', ['1', '♭3', '♭5', '♭7']);
+chordIntervalSymbol.set('-∆', ['1', '♭3', '5', '7']);
+chordIntervalSymbol.set('∆(♯5)', ['1', '3', '♯5', '7']);
+chordIntervalSymbol.set('∆(♭5)', ['1', '3', '♭5', '7']);
+chordIntervalSymbol.set('o7', ['1', '♭3', '♭5', '♭♭7']);
+
+let chordIntervalLetter = new Map();
+chordIntervalLetter.set('maj7', ['1', '3', '5', '7']);
+chordIntervalLetter.set('min7', ['1', '♭3', '5', '♭7']);
+chordIntervalLetter.set('7', ['1', '3', '5', '♭7']);
+chordIntervalLetter.set('min7(♭5)', ['1', '♭3', '♭5', '♭7']);
+chordIntervalLetter.set('minMaj7', ['1', '♭3', '5', '7']);
+chordIntervalLetter.set('maj7(♯5)', ['1', '3', '♯5', '7']);
+chordIntervalLetter.set('maj7(♭5)', ['1', '3', '♭5', '7']);
+chordIntervalLetter.set('dim7', ['1', '♭3', '♭5', '♭♭7']);
 
 function toggleDisplay() {
     switch(article.getAttribute('mode')){
@@ -96,7 +112,7 @@ function displayScaleNames(key){
     $(".scale-name").remove();
     let scaleNameArray = scaleNameMap.get(key)
     for (let i = 0; i < 7; i++) {
-        let scaleNameBox = document.createElement("div");
+        let scaleNameBox = document.createElement("span");
         scaleNameBox.className = 'scale-name';
         scaleName.appendChild(scaleNameBox);
         scaleNameBox.innerHTML = scaleNameArray[i];
@@ -136,10 +152,32 @@ function createHarmony(){
 };
 
 function populateChords(chords) {
-    for (let i = 1; i < 8; i++) {
-        contentChord.childNodes[2 * i - 1].innerHTML = chords[i - 1];
-        contentChord.childNodes[2 * i - 1].className = 'chord-container';
+    for (let i = 0; i < 7; i++) {
+        let chordBox = document.getElementById(`chord${i}`)
+        let chordSpan = document.createElement("span");
+        chordSpan.className = 'chord-container';
+        chordBox.appendChild(chordSpan);
+        chordSpan.innerHTML = chords[i];
+
+        let chord = chords[i];
+        let chordColour = chord[1]==='♭'||chord[1]==='♯'?
+            chord.slice(2) : chord.slice(1);
+
+        
+        let intervals = contentChord.getAttribute('display-type')==='symbol'?
+        chordIntervalSymbol.get(chordColour) : chordIntervalLetter.get(chordColour);
+        
+        let intervalSpan = document.createElement("span");
+        intervalSpan.className = 'chord-intervals';
+        chordBox.appendChild(intervalSpan);
+        intervalSpan.innerHTML = intervals;
     }
+}
+
+function clearContent(){
+    $(".note-container").remove();
+    $(".chord-container").remove();
+    $(".chord-intervals").remove();
 }
 
 $(".segment").click(function () {
@@ -150,7 +188,7 @@ $(".segment").click(function () {
     }
 
     displayMode();
-    $(".note-container").remove();
+    clearContent();
     
     toggleDisplay();
     
@@ -161,7 +199,7 @@ $(".segment").click(function () {
 
 $("#major").click(() => {
     article.setAttribute('tonality', 'major');
-    $(".note-container").remove();
+    clearContent();
     toggleDisplay();
     createHarmony();
 });
@@ -169,7 +207,7 @@ $("#major").click(() => {
 $("#melMinor").click(() => {
 
     article.setAttribute('tonality', 'melodicMinor');
-    $(".note-container").remove();
+    clearContent();
     toggleDisplay();
     createHarmony();
 
@@ -178,7 +216,7 @@ $("#melMinor").click(() => {
 $("#harmMinor").click(() => {
 
     article.setAttribute('tonality', 'harmonicMinor');
-    $(".note-container").remove();
+    clearContent();
     toggleDisplay();
     createHarmony();
 });
@@ -186,20 +224,20 @@ $("#harmMinor").click(() => {
 $("#harmMajor").click(() => {
 
     article.setAttribute('tonality', 'harmonicMajor');
-    $(".note-container").remove();
+    clearContent();
     toggleDisplay();
     createHarmony();
 });
 
 $("#scales").click(() => {
     article.setAttribute('mode', 'scaleMode');
-    $(".note-container").remove();
+    clearContent();
     toggleDisplay();
     createHarmony();
 });
 
 $("#chords").click(() => {
-    $(".note-container").remove();
+    clearContent();
     article.setAttribute('mode', 'chordMode');
     contentChord.setAttribute('display-type', 'symbol');
     toggleDisplay();
@@ -207,6 +245,7 @@ $("#chords").click(() => {
 });
 
 $("input").on("click", function() {
+    clearContent();
     if(contentChord.getAttribute('display-type')==="symbol"){
         contentChord.setAttribute('display-type', "letter");
     } else {

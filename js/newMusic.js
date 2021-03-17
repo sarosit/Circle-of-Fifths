@@ -26,10 +26,6 @@ Array.prototype.circularArray = function (note) {
     return newArr;
 }
 
-// import { chordParserFactory, chordRendererFactory } from '../node_modules/chord-symbol/lib/chord-symbol-esm.js';
-// const parseChord = chordParserFactory();
-// const renderChord = chordRendererFactory({ useShortNamings: true });
-
 export class MusicManager {
     #notesSharp = ['C', 'C♯', 'D', 'D♯', 'E', 'F', 'F♯', 'G', 'G♯', 'A', 'A♯', 'B'];
     #notesb = ['C', 'D♭', 'D', 'E♭', 'E', 'F', 'G♭', 'G', 'A♭', 'A', 'B♭', 'B'];
@@ -44,16 +40,18 @@ export class MusicManager {
     #chordSymbolArray = [
         ['maj7', 'min7', 'min7', 'maj7', '7', 'min7', 'min7(♭5)'],
         ['minMaj7', 'min7', 'maj7(♯5)', '7', '7', 'min7(♭5)', 'min7(♭5)'],
-        ['minMaj7', 'min7♭5', 'maj7(♭5)', 'min7', '7', 'maj7', 'dim7'],
+        ['minMaj7', 'min7(♭5)', 'maj7(♭5)', 'min7', '7', 'maj7', 'dim7'],
         ['maj7', 'min7(♭5)', 'min7', 'minMaj7', '7', 'maj7(♯5)', 'dim7']
     ];
 
     #chordSymbolArrayAlt = [
         ['∆', '-7', '-7', '∆', '7', '-7', 'ø'],
         ['-∆', '-7', '∆(♯5)', '7', '7', 'ø', 'ø'],
-        ['-∆', '-7♭5', '∆(♭5)', '-7', '7', '∆', 'o7'],
+        ['-∆', 'ø', '∆(♭5)', '-7', '7', '∆', 'o7'],
         ['∆', 'ø', '-7', '-∆', '7', '∆(♯5)', 'o7']
     ];
+
+    
 
 
     rootNote = 'C';  
