@@ -27,24 +27,24 @@ Array.prototype.circularArray = function (note) {
 }
 
 export class MusicManager {
-    #notesSharp = ['C', 'C♯', 'D', 'D♯', 'E', 'F', 'F♯', 'G', 'G♯', 'A', 'A♯', 'B'];
-    #notesb = ['C', 'D♭', 'D', 'E♭', 'E', 'F', 'G♭', 'G', 'A♭', 'A', 'B♭', 'B'];
-    #sharpKeys = ['C', 'G', 'D', 'A', 'E', 'B', 'A♯', 'G♯', 'F♯', 'C♯', 'D♯'];
+    notesSharp = ['C', 'C♯', 'D', 'D♯', 'E', 'F', 'F♯', 'G', 'G♯', 'A', 'A♯', 'B'];
+    notesb = ['C', 'D♭', 'D', 'E♭', 'E', 'F', 'G♭', 'G', 'A♭', 'A', 'B♭', 'B'];
+    sharpKeys = ['C', 'G', 'D', 'A', 'E', 'B', 'A♯', 'G♯', 'F♯', 'C♯', 'D♯'];
     rootNote = 'C';
-    #stencilArray = [
+    stencilArray = [
         [0, 2, 4, 5, 7, 9, 11],
         [0, 2, 3, 5, 7, 9, 11],
         [0, 2, 3, 5, 7, 8, 11],
         [0, 2, 4, 5, 7, 8, 11]
     ];
-    #chordSymbolArray = [
+    chordSymbolArray = [
         ['maj7', 'min7', 'min7', 'maj7', '7', 'min7', 'min7(♭5)'],
         ['minMaj7', 'min7', 'maj7(♯5)', '7', '7', 'min7(♭5)', 'min7(♭5)'],
         ['minMaj7', 'min7(♭5)', 'maj7(♭5)', 'min7', '7', 'maj7', 'dim7'],
         ['maj7', 'min7(♭5)', 'min7', 'minMaj7', '7', 'maj7(♯5)', 'dim7']
     ];
 
-    #chordSymbolArrayAlt = [
+    chordSymbolArrayAlt = [
         ['∆', '-7', '-7', '∆', '7', '-7', 'ø'],
         ['-∆', '-7', '∆(♯5)', '7', '7', 'ø', 'ø'],
         ['-∆', 'ø', '∆(♭5)', '-7', '7', '∆', 'o7'],
@@ -62,38 +62,38 @@ export class MusicManager {
         return this;
     }
     major() {
-        this.#stencilArray = this.#stencilArray[0];
-        this.#chordSymbolArray = this.#chordSymbolArray[0];
-        this.#chordSymbolArrayAlt = this.#chordSymbolArrayAlt[0];
+        this.stencilArray = this.stencilArray[0];
+        this.chordSymbolArray = this.chordSymbolArray[0];
+        this.chordSymbolArrayAlt = this.chordSymbolArrayAlt[0];
         return this;
     }
     melodicMinor() {
-        this.#stencilArray = this.#stencilArray[1];
-        this.#chordSymbolArray = this.#chordSymbolArray[1];
-        this.#chordSymbolArrayAlt = this.#chordSymbolArrayAlt[1];
+        this.stencilArray = this.stencilArray[1];
+        this.chordSymbolArray = this.chordSymbolArray[1];
+        this.chordSymbolArrayAlt = this.chordSymbolArrayAlt[1];
         return this;
     }
     harmonicMinor() {
-        this.#stencilArray = this.#stencilArray[2];
-        this.#chordSymbolArray = this.#chordSymbolArray[2];
-        this.#chordSymbolArrayAlt = this.#chordSymbolArrayAlt[2];
+        this.stencilArray = this.stencilArray[2];
+        this.chordSymbolArray = this.chordSymbolArray[2];
+        this.chordSymbolArrayAlt = this.chordSymbolArrayAlt[2];
         return this;
     }
     harmonicMajor() {
-        this.#stencilArray = this.#stencilArray[3];
-        this.#chordSymbolArray = this.#chordSymbolArray[3];
-        this.#chordSymbolArrayAlt = this.#chordSymbolArrayAlt[3];
+        this.stencilArray = this.stencilArray[3];
+        this.chordSymbolArray = this.chordSymbolArray[3];
+        this.chordSymbolArrayAlt = this.chordSymbolArrayAlt[3];
         return this;
     }
     scale() {
-        let accidental = this.#sharpKeys.includes(this.rootNote) ? this.#notesSharp : this.#notesb;
-        return accidental.circularArray(this.rootNote).filter((el, i) => this.#stencilArray.some(j => i === j));
+        let accidental = this.sharpKeys.includes(this.rootNote) ? this.notesSharp : this.notesb;
+        return accidental.circularArray(this.rootNote).filter((el, i) => this.stencilArray.some(j => i === j));
     }
     chords() {
-        return this.scale().map((el, index) => el.concat(this.#chordSymbolArray[index])); 
+        return this.scale().map((el, index) => el.concat(this.chordSymbolArray[index])); 
     }
     chordSymbol(){
-        return this.scale().map((el, index) => el.concat(this.#chordSymbolArrayAlt[index]));
+        return this.scale().map((el, index) => el.concat(this.chordSymbolArrayAlt[index]));
     }
     modes() {
         let myModes = [];
