@@ -1,8 +1,3 @@
-html {
-    width: 100%;
-    margin: none;
-}
-
 button:focus {
     outline: 1;
     outline-color: rgba(0, 0, 0, 0.144);
@@ -14,7 +9,10 @@ button:focus {
     border-bottom: solid;
     border-width: 1px;
     width: 100%;
-    font-size: 3rem;
+}
+
+#content {
+    padding: 1rem;
 }
 
 #name {
@@ -22,27 +20,19 @@ button:focus {
     font-size: 1rem;
 }
 
-#content {
-    padding: 2rem;
-    margin: 1rem 1rem 1rem 1rem;
-}
-
 .circle-wrapper {
     border: none;
     border-width: 1px;
     border-radius: 15px;
-    margin: 1rem;
-    padding-bottom: 1rem;
-    width: 100%;
+    width: auto;
 }
 
 #content-wrapper {
-    margin: 1em;
     padding: 1rem;
     border: none;
     border-width: 1px;
     border-radius: 15px;
-    width: 100%;
+    width: auto;
 }
 
 .display-mode {
@@ -71,7 +61,7 @@ button:focus {
     border: none;
     border-width: 1px;
     border-radius: 5px;
-    width: auto;
+
 }
 
 .harmony {
@@ -94,6 +84,11 @@ button:focus {
 .harmony:hover {
     background-color: rgb(249, 251, 212);
     cursor: pointer;
+}
+
+#scale-display, #chord-display{
+    height:100%;
+    width: 100%;
 }
 
 .switch{
@@ -152,6 +147,8 @@ input:checked+.slider:before {
 .toggle-message{
     font-size: .7rem;
 }
+
+
 
 .chord {
     padding: 1rem;

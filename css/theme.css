@@ -21,6 +21,11 @@ body {
   background-color: var(--harmony-color);
   box-shadow: 1px 1px 2px 1px rgba(53, 53, 53, 0.356);
 }
+
+.chord-container{
+  font-size: 1rem;
+}
+
 .mode, .name, .chord{
   background-color: var(--table-color);
   font-size: .8rem;

@@ -51,18 +51,18 @@ chordIntervalLetter.set('dim7', ['1', '♭3', '♭5', '♭♭7']);
 function toggleDisplay() {
     switch(article.getAttribute('mode')){
         case 'scaleMode':
-            contentScale.style.visibility = 'visible';
-            contentChord.style.visibility = 'hidden';
+            contentScale.style.display = 'grid';
+            contentChord.style.display = 'none';
             break;
         
         case 'chordMode':
-            contentScale.style.visibility = 'hidden';
-            contentChord.style.visibility = 'visible';
+            contentScale.style.display = 'none';
+            contentChord.style.display = 'grid';
             break
 
         default:
-            contentScale.style.visibility = 'visible';
-            contentChord.style.visibility = 'hidden';
+            contentScale.style.display = 'grid';
+            contentChord.style.display = 'none';
 
     }
     
@@ -89,8 +89,8 @@ function setKeyTonality(el, note) {
 }
 
 function displayMode() {
-    mainDisplay.style.display = 'flex';
-    article.style.display = 'flex';
+    mainDisplay.style.display = 'grid';
+    article.style.display = 'grid';
     userMess.style.display = 'none';
 }
 
@@ -170,7 +170,7 @@ function populateChords(chords) {
         let intervalSpan = document.createElement("span");
         intervalSpan.className = 'chord-intervals';
         chordBox.appendChild(intervalSpan);
-        intervalSpan.innerHTML = intervals;
+        intervalSpan.innerHTML = `Chord Intervals:\n ${intervals}`;
     }
 }
 
