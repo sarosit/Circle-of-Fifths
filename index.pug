@@ -6,6 +6,7 @@ html
         link(rel='stylesheet' href='css/layout.css' type='text/css')
         link(rel='stylesheet' href='css/theme.css' type='text/css')
         link(rel='stylesheet' href='css/style.css' type='text/css')
+        link(rel='stylesheet' href='css/toggleStyle.css' type='text/css')
         link(rel='stylesheet' href='css/graphic.css' type='text/css')
         script(src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.2/jquery.min.js")
         //- script(src='js/jquery.js' type="text/javascript")
@@ -14,64 +15,62 @@ html
     body
 
         header
-            #title The Circle of Fifths
-            span#name Tomas Sarosi 
+            div The Circle of Fifths
+            span Tomas Sarosi 
         article#content
-            .circle-wrapper
+            .container.circle-wrapper
                 span#user-message
                     p Choose a Key on The Circle
                 include circle.pug
 
-            #content-wrapper 
+            .container#content-wrapper 
                 .display-mode
                     button#scales Scales and Modes
                     button#chords Chords
-                .harmony-container
-                    button.harmony#major Major
-                    button.harmony#melMinor Melodic Minor
-                    button.harmony#harmMinor Harmonic Minor
-                    button.harmony#harmMajor Harmonic Major
-                .display-wrapper
-                    #scale-display
-                        .scale-box 
-                            .name
-                            .mode#ionian
-                        .scale-box 
-                            .name
-                            .mode#dorian
-                        .scale-box 
-                            .name
-                            .mode#phrygian
-                        .scale-box 
-                            .name
-                            .mode#lydian
-                        .scale-box 
-                            .name
-                            .mode#mixolydian
-                        .scale-box 
-                            .name
-                            .mode#aeolian
-                        .scale-box 
-                            .name
-                            .mode#locrian
+                .harmony
+                    button#major Major
+                    button#melMinor Melodic Minor
+                    button#harmMinor Harmonic Minor
+                    button#harmMajor Harmonic Major
+                .display-wrapper#scale-display
+                    .scale-box
+                        .name
+                        .mode#ionian
+                    .scale-box
+                        .name
+                        .mode#dorian
+                    .scale-box
+                        .name
+                        .mode#phrygian
+                    .scale-box
+                        .name
+                        .mode#lydian
+                    .scale-box
+                        .name
+                        .mode#mixolydian
+                    .scale-box
+                        .name
+                        .mode#aeolian
+                    .scale-box
+                        .name
+                        .mode#locrian
 
 
-                    #chord-display
-                        .chord#chord0
-                        .chord#chord1
-                        .chord#chord2
-                        .chord#chord3
-                        .chord#chord4
-                        .chord#chord5
-                        .chord#chord6
+                .display-wrapper#chord-display
+                    .chord#chord0
+                    .chord#chord1
+                    .chord#chord2
+                    .chord#chord3
+                    .chord#chord4
+                    .chord#chord5
+                    .chord#chord6
 
-                        #toggle-container
-
-                            label.switch 
-                                input#toggle-chord-view(type="checkbox")
-                                span.slider 
-                            span.toggle-message Flick the switch above to change the chord symbols!
+                    #toggle-container
+                        label.switch 
+                            input#toggle-chord-view(type="checkbox")
+                            span.slider 
+                        span.toggle-message Flick the switch above to change the chord symbols!
 
         script(src='js/newScript.js' type="module")
         footer
-            
+

@@ -27,7 +27,8 @@ header {
 
 #content-wrapper {
     display: none;
-    grid-template-rows: 1fr 1fr 5fr;
+    grid-template-rows: 1fr .5fr 5fr;
+    grid-gap: .5rem;
 }
 
 .display-mode {
@@ -35,20 +36,13 @@ header {
     justify-content: space-around;
 }
 
-.harmony-container {
-    display: flex;
-}
-
 .harmony {
-    display: inline-block;
-}
-
-.display-wrapper {
-    position: relative;
+    display: flex;
+    flex-direction: row;
 }
 
 #chord-display {
-    position: absolute;
+    
     display: grid;
     grid-template-areas:
     "tonic tonic toggle"
@@ -107,7 +101,6 @@ header {
 
 
 #scale-display {
-    position: absolute;
     display: grid;
     grid-template-rows: repeat(7, 1fr);
     grid-gap: .5rem;
@@ -139,23 +132,23 @@ header {
 }
 
 @media (min-width: 1025px) {
-    #content {
+    article {
         display: block;
         grid-template-columns: 1fr 1fr;
         grid-gap: 2rem;
     }
-    #title {
+    header > div{
         font-size: 3rem;
     }
   }
 @media (max-width: 1025px){
-    #content {
+    article {
         display: block;
-        grid-template-rows: 20% 60%;
+        grid-template-rows: 200px 400px;
         grid-gap: 2rem;
 
     }
-    #title {
+    header > div{
         font-size: 2rem;
     }
 }

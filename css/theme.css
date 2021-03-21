@@ -1,3 +1,13 @@
+@font-face {
+  font-family: 'MyWebFont';
+  src: url('webfont.eot'); /* IE9 Compat Modes */
+  src: url('webfont.eot?#iefix') format('embedded-opentype'), /* IE6-IE8 */
+       url('webfont.woff2') format('woff2'), /* Super Modern Browsers */
+       url('webfont.woff') format('woff'), /* Pretty Modern Browsers */
+       url('webfont.ttf')  format('truetype'), /* Safari, Android, iOS */
+       url('webfont.svg#svgFontName') format('svg'); /* Legacy iOS */
+}
+
 :root{
   --main-bg-color: rgb(255, 255, 255);
   --b-bg-color: #f8f5f5;
@@ -14,12 +24,20 @@ body {
 
   box-shadow: 6px 6px 2px 1px rgba(53, 53, 53, 0.356);
 }
-#scales, #chords{
+.display-mode > button{
   background-color: var(--button-color);
 }
 .harmony-container{
   background-color: var(--harmony-color);
   box-shadow: 1px 1px 2px 1px rgba(53, 53, 53, 0.356);
+}
+.display-mode > button:hover {
+  background-color: rgb(243, 246, 172);
+  cursor: pointer;
+}
+.harmony-container > button:hover {
+  background-color: rgb(249, 251, 212);
+  cursor: pointer;
 }
 
 .chord-container{
@@ -31,15 +49,10 @@ body {
   font-size: .8rem;
 }
 
-body {
-  font-family: Verdana, Geneva, Tahoma, sans-serif;
+body, button{
+  font-family: 'MyWebFont', Fallback, sans-serif;
   font-weight: lighter;
-
-}
-  
-.title, .harmony {
-  font-family: Verdana, Geneva, Tahoma, sans-serif;
-  font-weight: lighter;
+  font-style: oblique;
 }
 header, #user-message, footer{
   color:rgb(68, 44, 0);

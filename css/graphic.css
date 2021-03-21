@@ -6,13 +6,18 @@
 }
 
 path {
-  fill: #89a0f3;
+  fill: #99adf5;
   opacity: 0.7;
   text-align: center;
 }
 
 path:hover {
-  opacity: .9;
+  fill: khaki;
+}
+
+#major-key, #minor, #accidentals{
+  display: flex;
+  justify-content: space-around;
 }
   
 #major-key {
